@@ -1,0 +1,24 @@
+#!/bin/bash
+
+direction="bottom"
+namespace=""
+current=$(bspc query -D -d)
+
+while getopts ':d:s:w:n:Agf' flag; do
+	case "${flag}" in
+		d) 
+			direction="$OPTARG"
+		;;
+		g)
+			current=""
+		;;
+		n)
+			namespace="$OPTARG"
+		;;
+		?)
+
+		;;
+  esac
+done
+
+echo $current"_"$direction"_quaked"$namespace

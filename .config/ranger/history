@@ -1,0 +1,22 @@
+set show_hidden
+?
+delete 
+mkdir linux
+set preview_files true
+
+mkdir studium
+mkdir 1141
+mkdir ea
+touch practice_induct.tex
+touch ea1.tex
+set preview_images true
+touch ranger.conf
+delete
+rename ea2.tex
+rename ea3.tex
+rename ea4.tex
+rename ea5.tex
+rename ea6.tex
+rename ea7.tex
+search Kringel
+set show_hidden true
