@@ -1,0 +1,24 @@
+[bindings]
+  [[thread]]
+    x = bclose
+    b = bufferlist
+  [[search]]
+    t = taglist
+    b = bufferlist
+    p = shellescape offlineimap
+    r = refresh
+  [[bufferlist]]
+    x = bclose
+    t = taglist
+  [[taglist]]
+    x = bclose
+    b = bufferlist
+
+[accounts]
+  [[mailbox]]
+    realname = Patrick Louis
+    sendmail_command = msmtp -t
+    sent_box = maildir:///home/caya/mail/Sent
+    draft_box = maildir:///home/caya/mail/Drafts
+    gpg_key = E3D9572E9CECC79C
+    address = patrick.louis@mailbox.org
