@@ -3,7 +3,6 @@ set show_hidden
 delete 
 mkdir linux
 set preview_files true
-
 mkdir studium
 mkdir 1141
 mkdir ea
@@ -20,3 +19,5 @@ rename ea6.tex
 rename ea7.tex
 search Kringel
 set show_hidden true
+open_with 
+
