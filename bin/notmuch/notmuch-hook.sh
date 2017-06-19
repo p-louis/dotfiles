@@ -25,5 +25,6 @@ notmuch tag +soznet -unread -- from:@linkedin or from:@xing
 notmuch tag +newsletter -unread -inbox +killed -- from:marketing@weare.de or from:info@solidworks-community.com or from:news@ or from:newsletter@
 notmuch tag +facebook -unread -- from:@facebook
 notmuch tag +youtube -unread -- from:@youtube.com
+notmuch tag -unread -- tag:killed
 
 
