@@ -3,16 +3,25 @@
     x = bclose
     b = bufferlist
   [[search]]
-    t = taglist
+    l = taglist
     b = bufferlist
-    p = shellescape offlineimap
+    p = shellescape offlineimap; refresh
     r = refresh
+    t = retagprompt
+    x = bclose
+    c = compose
+
   [[bufferlist]]
     x = bclose
     t = taglist
+
   [[taglist]]
     x = bclose
     b = bufferlist
+
+  [[envelope]]
+    1 = togglesign E3D9572E9CECC79C
+    2 = encrypt E3D9572E9CECC79C
 
 [accounts]
   [[mailbox]]
