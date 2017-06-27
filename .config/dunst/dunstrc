@@ -34,19 +34,19 @@
 
 [frame]
     width = 2
-    color = "#600e7c"
+    color = "#ac7bde"
 
 [urgency_low]
-    background = "#fdf6e3"
-    foreground = "#000000"
+    background = "#232323"
+    foreground = "#a0a0a0"
     timeout = 5
 
 [urgency_normal]
-    background = "#333333"
-    foreground = "#FFFFFF"
+    background = "#232323"
+    foreground = "#98cbfe"
     timeout = 10
 
 [urgency_critical]
-    foreground = "#600e7c"
-    background = "#cc6666"
+    foreground = "#232323"
+    background = "#ffa7da"
     timeout = 0
