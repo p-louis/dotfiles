@@ -1,0 +1,648 @@
+;=========================================================;
+;                                                         ;
+;   cayas modified polybar config. Original by uNd0xR.    ;
+;                                                         ;
+;=========================================================;
+
+
+;----------------------------------------------------------
+;			C O L O R S
+;----------------------------------------------------------
+
+[colors]
+peach = #efbd8b
+lime = #a3d572
+salmon = #ffa7da
+darkgrey = #2e2e2e
+lightgrey = #e5b0ff
+background = #e5b0ff
+background-alt = #2E2E2E
+foreground = #a0a0a0
+foreground-alt = #555555
+primary = #e5b0ff
+secondary = #ac7bde
+alert = #d370a3
+
+
+;----------------------------------------------------------
+;			G L O B A L
+;----------------------------------------------------------
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/rome]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 21
+offset-x = 0
+offset-y = 0
+fixed-center = true
+;dock = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #F96D5F
+underline-size = 0
+underline-color = #424242
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background-alt}
+border-top-size = 0
+border-top-color = ${colors.background}
+border-color-foreground = #FFCD98
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+
+;----------------------------------------------------------
+;			F O N T S
+;----------------------------------------------------------
+
+font-0 = Source Code Pro:size=10;2
+font-1 = Source Code Pro For Powerline:size=14;3
+font-2 = FontAwesome:size=10;1
+font-3 = Terminus:size=10;1
+;font-2 = GohuFont:size=10;1
+;font-3 = Roboto:size=10;1
+;font-4 = -*-gohufont-medium-*-*-*-10-*-*-*-*-*-*-*;1
+;font-5 = FontAwesome:size=10;6
+;font-6 = PowerlineSymbols:size=14;1
+;font-7 = siji:pixelsize=10;1
+;font-8 = GohuFont:pixelsize=10:weight=bold;1
+
+
+;----------------------------------------------------------
+;  	    M A I N   M O D U L E    L A Y O U T
+;----------------------------------------------------------
+
+modules-left = bspwm rightarrow powermenu
+modules-center = mpd
+modules-right = darkarrow volume lightarrow temperature darkarrow filesystem lightarrow battery darkarrow date
+
+
+;----------------------------------------------------------
+;			  T R A Y
+;----------------------------------------------------------
+
+;tray-position = center
+;tray-padding = 2
+;tray-offset-x = 21%
+tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+;override-redirect = true
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+
+;----------------------------------------------------------
+;		       X W I N D O W
+;----------------------------------------------------------
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+format-padding = 1
+label-padding-left = 1
+label-padding-right = 1
+label-foreground = ${colors.darkgrey}
+label-background = ${colors.background}
+
+
+;----------------------------------------------------------
+;		    X K E Y B O A R D
+;----------------------------------------------------------
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-underline = ${colors.secondary}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+
+label-layout = %layout%
+
+label-indicator-padding = 2
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+
+;----------------------------------------------------------
+;		   F I L E S Y S T E M
+;----------------------------------------------------------
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+fixed-values = true
+
+mount-0 = /
+;mount-1 = /home
+
+format-mounted = <label-mounted>
+format-mounted-prefix = 
+;format-mounted-foreground = ${colors.foreground}
+;format-mounted-overline = #73d216
+
+format-mounted-padding = 1
+format-unmounted-padding = 1
+format-mounted-foreground = ${colors.lightgrey}
+format-mounted-background = ${colors.darkgrey}
+label-mounted = %percentage_used%
+label-mounted-padding = 1
+;label-mounted-underline= #73d216
+;label-mounted-overline= #73d216
+label-unmounted = %mountpoint%: not mounted
+
+format-unmounted-foreground = ${colors.lightgrey}
+format-unmounted-background = ${colors.darkgrey}
+
+;----------------------------------------------------------
+;		B S P W M   M O D U L E
+;----------------------------------------------------------
+
+[module/bspwm]
+type = internal/bspwm
+; Only show workspaces defined on the same output as the bar
+pin-workspaces = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+;format-suffix = |
+format-suffix-foreground = ${colors.background-alt}
+
+;label-focused = %name%
+label-focused = "●"
+label-focused-foreground = ${colors.salmon}
+label-focused-background = ${colors.darkgrey}
+label-focused-underline= ${colors.primary}
+label-focused-overline= ${colors.primary}
+label-focused-padding = 3
+label-focused-font = 3
+
+label-occupied = "●"
+label-occupied-padding = 3
+label-occupied-foreground = ${colors.foreground}
+label-occupied-background = ${colors.darkgrey}
+label-occupied-font = 3
+
+label-urgent = "●"
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.darkgrey}
+label-urgent-padding = 3
+label-urgent-font = 3
+
+label-empty = "○"
+label-empty-foreground = ${colors.foreground}
+label-empty-background = ${colors.darkgrey}
+label-empty-padding = 3
+label-empty-font = 3
+
+
+;----------------------------------------------------------
+;			    M P D
+;----------------------------------------------------------
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+
+format-online-foreground = ${colors.darkgrey}
+format-online-background = ${colors.lightgrey}
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = ${colors.lightgrey}
+toggle-off-foreground = #66
+
+
+;----------------------------------------------------------
+;		     B A C K L I G H T
+;----------------------------------------------------------
+
+[module/backlight]
+type = internal/backlight
+; To list available cards use: $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+format = <label>
+label = bkl %percentage%
+
+bar-width = 10
+bar-indicator = │
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+
+;----------------------------------------------------------
+;			   C P U
+;----------------------------------------------------------
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+;format-prefix = " "
+format-prefix = "cpu "
+;format-prefix-underline = #edd400
+;format-prefix-overline = #edd400
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = #424242
+
+;format-suffix = "%"
+format-suffix-foreground = ${colors.foreground}
+;label-underline = #edd400
+;label-overline = #edd400
+label = %percentage%
+label-background = #424242
+label-foreground = ${colors.foreground}
+label-padding = 0
+
+
+;----------------------------------------------------------
+;			M E M O R Y
+;----------------------------------------------------------
+
+[module/memory]
+type = internal/memory
+interval = 3
+;format-prefix = " "
+format-prefix = ram
+format-prefix-background = #424242
+format-prefix-foreground = ${colors.foreground}
+;format-prefix-underline = #f57900
+;format-prefix-overline = #f57900
+
+format-margin-top = -5
+format-suffix-height = 100%
+format-suffix-foreground = #FFFFFF
+label-background = #424242
+;format-underline = #475753
+label = %percentage_used%
+label-foreground = ${colors.foreground}
+label-padding = 1
+;label-underline = #f57900
+;label-overline = #f57900
+
+
+;----------------------------------------------------------
+;	          T E X T    M O D U L E S
+;----------------------------------------------------------
+
+[module/pipe]
+type = custom/text
+content = "|"
+content-background = ${colors.background}
+content-foreground = ${colors.darkgrey}
+content-padding = 1
+
+[module/darkarrow]
+type = custom/text
+content = " "
+content-background = ${colors.lightgrey}
+content-foreground = ${colors.darkgrey}
+content-padding = 0
+
+[module/lightarrow]
+type = custom/text
+content = " "
+content-background = ${colors.darkgrey}
+content-foreground = ${colors.lightgrey}
+content-padding = 0
+
+[module/rightarrow]
+type = custom/text
+content = ""
+content-background = ${colors.lightgrey}
+content-foreground = ${colors.darkgrey}
+content-padding = 0
+
+
+;----------------------------------------------------------
+;	      W I R E L E S S    N E T W O R K
+;----------------------------------------------------------
+
+[module/network]
+type = internal/network
+; To test interface: $ ls -1 /sys/class/net/
+interface = wlp3s0
+interval = 2
+
+;format-connected-prefix = " "
+format-connected-prefix = " net"
+format-connected-background = ${colors.darkgrey}
+format-connected-foreground = ${colors.lightgrey}
+format-prefix-foreground = ${colors.foreground}
+format-connected = <label-connected>
+format-disconnected-prefix = " net"
+format-disconnected = <label-disconnected>
+
+;format-connected-underline = #495858
+;format-disconnected-underline = ${self.format-connected-underline}
+;format-connected-underline = #37b7a0
+;format-connected-overline = #37b7a0
+
+label-connected-padding = 1
+label-connected = %downspeed%
+label-disconnected = not connected
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+
+;----------------------------------------------------------
+;   		      E T H E R N E T
+;----------------------------------------------------------
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
+
+
+;----------------------------------------------------------
+;		     D A T E  &  T I M E
+;----------------------------------------------------------
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = ""
+date-alt = %d-%m-%Y
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+format = <label>
+format-prefix = "  "
+format-suffix = " "
+format-prefix-foreground = ${colors.lightgrey}
+format-foreground = ${colors.lightgrey}
+format-background = ${colors.darkgrey}
+;format-overline = #0a6cf5
+label = %date% %time%
+label-font = 1
+label-padding = 1
+
+
+;----------------------------------------------------------
+;			V O L U M E
+;----------------------------------------------------------
+
+[module/volume]
+type = internal/volume
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+mapping = true
+
+format-volume = <label-volume>
+;format-volume = <bar-volume>
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.lightgrey}
+format-volume-prefix-background = ${colors.darkgrey}
+label-volume = %percentage%
+label-volume-foreground = ${colors.lightgrey}
+label-volume-background = ${colors.darkgrey}
+;label-volume-underline= #58ffef
+;label-volume-overline= #58ffef
+
+format-muted-prefix = " "
+format-muted-suffix = " "
+format-muted-foreground = ${colors.secondary}
+format-muted-background = ${colors.darkgrey}
+label-muted = 
+label-volume-padding = 1
+
+;bar-volume-padding = 1
+bar-volume-width = 10
+,bar-volume-background = #495858
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = "|"
+bar-volume-indicator-font = 1
+bar-volume-indicator-foreground = #95d595
+bar-volume-indicator-background = #222
+bar-volume-fill-background = #222
+bar-volume-fill = ─
+bar-volume-fill-font = 5
+bar-volume-empty-background = #222
+bar-volume-empty-padding = 1
+bar-volume-empty = ─
+bar-volume-empty-font = 5
+bar-volume-empty-foreground = ${colors.foreground-alt}
+;bar-volume-indicator-underline= #58ffef
+;bar-volume-indicator-overline= #58ffef
+;bar-volume-fill-underline= #58ffef
+;bar-volume-fill-overline= #58ffef
+;bar-volume-empty-underline= #58ffef
+;bar-volume-empty-overline= #58ffef
+
+
+;----------------------------------------------------------
+;			 B A T T E R Y
+;----------------------------------------------------------
+
+[module/battery]
+type = internal/battery
+; To list bat&adapt: $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC0
+full-at = 99
+
+format-charging = <label-charging>
+;format-charging-underline = #4e5942
+;format-charging-background = #4e5942
+format-discharging = <label-discharging>
+;format-discharging-underline = #7ab737
+;format-discharging-overline = #7ab737
+;format-full-underline = ${self.format-charging-underline}
+;format-full-overline = ${self.format-charging-underline}
+
+;format-full-prefix = " "
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.darkgrey}
+;format-full-prefix-background = ${colors.lightgrey}
+;format-full-suffix = " "
+format-full-padding = 1
+;format-charging-suffix = " "
+;format-charging-prefix = " "
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${colors.darkgrey}
+;format-charging-suffix-background = #222
+format-charging-foregroun =${colors.darkgrey}
+format-charging-padding = 1
+;format-discharging-prefix = " "
+format-discharging-prefix = " "
+format-discharging-prefix-foreground = ${colors.darkgrey}
+;format-discharging-suffix-background = #222
+format-discharging-foreground = ${colors.darkgrey}
+format-discharging-padding = 1
+
+label-charging = %percentage%
+label-charging-foreground = ${colors.darkgrey}
+label-discharging = %percentage%
+label-discharging-foreground = ${colors.darkgrey}
+label-full = %percentage%
+label-full-foreground = ${colors.darkgrey}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+
+;----------------------------------------------------------
+;		    T E M P E R A T U R E
+;----------------------------------------------------------
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+interval = 2
+
+format-prefix = " "
+format-prefix-foreground = ${colors.darkgrey}
+format-prefix-background = ${colors.lightgrey}
+format = <label>
+;format-underline = #c17d11
+;format-overline = #c17d11
+format-warn = <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-background = ${colors.background}
+label-foreground = ${colors.darkgrey}
+label-warn = %temperature%
+label-warn-background = ${colors.background-alt}
+label-warn-foreground = ${colors.alert}
+label-padding = 1
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+
+;----------------------------------------------------------
+;		      P O W E R   M E N U
+;----------------------------------------------------------
+
+[module/powermenu]
+type = custom/menu
+
+;label-open = "  "
+label-open = "   »   "
+;❧
+label-open-foreground = ${colors.darkgrey}
+label-open-background = ${colors.background}
+;label-open-overline = #ef2929
+;label-close =  cancel
+label-close = "   cancel "
+label-close-foreground = ${colors.darkgrey}
+label-separator = |
+label-separator-foreground = ${colors.background-alt}
+
+menu-0-0 = "  "
+menu-0-0-exec = pkill x
+menu-0-0-foreground = ${colors.secondary}
+menu-0-1 = "  "
+menu-0-1-exec = shutdown -h now
+menu-0-1-foreground = ${colors.alert}
+
+
+;----------------------------------------------------------
+;		       R U N    M E N U
+;----------------------------------------------------------
+
+[module/quickmenu]
+type = custom/menu
+
+;label-open = "  "
+label-open = " run "
+label-open-foreground = #999999
+;label-close =   cancel
+label-close = " cancel "
+label-close-foreground = #999999
+label-separator = |
+label-separator-foreground = ${colors.background-alt}
+
+menu-0-0 = " term "
+menu-0-0-exec = termite &
+menu-0-1 = " files "
+menu-0-1-exec = ranger &
+menu-0-2 = " text "
+menu-0-2-exec = atom &
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+
+
+;#########################################################;
+;                 E N D    O F    F I L E                 :
+;#########################################################;
+
