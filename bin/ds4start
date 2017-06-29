@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd /dev/input
+
+rm -f event6 event7 js0
+
+echo "Please detach the controller"
+sleep 5
+ds4drv
+sleep 5
+echo "Please attach the controller"
+sleep 5
+rm -f event24 js1
