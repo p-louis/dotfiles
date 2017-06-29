@@ -4,7 +4,7 @@ notmuch new
 
 newMail=$(notmuch search tag:unread | wc -l)
 if [[ $newMail -gt 0 ]]; then
-  sudo -u caya DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "New Mail" "You have $newMail new email"
+  sudo -u caya DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -i emblem-mail "New Mail" "You have $newMail new email"
 fi
 
 # serious stuff

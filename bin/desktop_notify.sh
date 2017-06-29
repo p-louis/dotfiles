@@ -1,7 +1,7 @@
 #!/bin/bash
 empty_icon=$(echo -e "\uf096")
 filled_icon=$(echo -e "\uf0c8")
-focused_icon="<span foreground='#859900'>$filled_icon</span>"
+focused_icon="<span foreground='#e5b0ff'>$filled_icon</span>"
 
 notification=""
 focused=$(bspc query -T -d | jq '.name' | sed -r 's/("|")//g')
@@ -27,4 +27,4 @@ for row in {1..2}; do
         fi
 done
 notification=${notification::-1}
-notify-send -u Low --expire-time=10 "Desktops" "$notification"
+notify-send -u Low -i video-display --expire-time=10 " " "$notification"

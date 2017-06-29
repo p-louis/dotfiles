@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	lxterminal
 
 # Quake Terms
 super + e
@@ -15,7 +15,11 @@ alt + e
 
 # program launcher
 super + space
-	dmenu_run
+	rofi -show run
+
+# Integrate Rofi_pass
+super + p
+	~/bin/rofi_pass
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -81,14 +85,12 @@ super + {_,shift + }c
 
 # focus the next/previous desktop
 super + bracket{left,right}
-	bspc desktop -f {prev,next}; \
-	~/bin/desktop_notify.sh
+	bspc desktop -f {prev,next}; 
 
 
 # focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last; \
-	~/bin/desktop_notify.sh
+	bspc {node,desktop} -f last; 
 
 
 # focus the older or newer node in the focus history
@@ -99,8 +101,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'; \
-	~/bin/desktop_notify.sh
+	bspc {desktop -f,node -d} '^{1-9,10}'; 
 
 #
 # preselect
