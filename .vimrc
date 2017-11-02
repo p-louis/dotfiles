@@ -1,7 +1,27 @@
 " UI Settings
+" {
+
+set nocompatible
+filetype off
+"set rtp+=~/.vim/bundle/Vundle.vim
+set shell=/bin/bash
+
+call vundle#begin()
+" Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-syntastic/syntastic'
+call vundle#end()
+
 filetype plugin indent on
 
 set encoding=utf-8
+set fillchars+=stl:\ ,stlnc:\
+
 set clipboard=unnamedplus,autoselect
 set completeopt=menuone,menu,longest
 
@@ -43,23 +63,27 @@ set scrolloff=3
 set foldenable
 set list
 set listchars=tab:>\ ,trail:@,extends:#,nbsp:.
+" }
 
-execute pathogen#infect()
+" execute pathogen#infect()
 
 let g:ctrlp_working_path_mode = 0
 " Prepare commandline
+" {
 if has('cmdline_info')
   set ruler
   set rulerformat=%30($=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
   set showcmd
 endif
+" }
 
 " Prepare statusline
+" {
 if has('statusline')
   set laststatus=2
 
   set statusline=%<%f\
-  set statusline+=%w%h%m%r
+ set statusline+=%w%h%m%r
 
   set statusline+=\ [%{&ff}/%Y]
   set statusline+=\ [%{getcwd()}]
@@ -69,47 +93,43 @@ if has('statusline')
   set statusline+=%*
 endif
 
-map <Leader>s :SyntasticToggleMode<CR>
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
-
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-
-if has("gui_running")
-  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-else " no gui
-    if has("unix")
-        inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-  endif
-endif
-
-let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
 map <Leader>n :NERDTreeToggle<CR>
 
-let g:haskell_tabular = 1
+map gn :bn<CR>
+map gp :bp<CR>
+map gd :bd<CR>
 
-vmap a= :Tabularize /=<CR>
-vmap a; :Tabularize /::<CR>
-vmap a- :Tabularize /-><CR>
+" LaTeX (rubber) macro for compiling
+nnoremap <leader>c :w<CR>:!rubber --pdf --warn all %<CR>
+
+" View PDF macro; '%:r' is current file's root (base) name.
+nnoremap <leader>v :!mupdf %:r.pdf &<CR><CR>
 
 
-map <silent> <Leader>t :CtrlP()<CR>
-noremap <leader>b<space> :CtrlPBuffer<cr>
-let g:ctrlp_custom_ignore = '\v[\/]dist$'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
-
-let g:Powerline_symbols = 'fancy'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+"
+" Airline Settings
+" {
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'bubblegum'
+"}
 
 " Colors
-set background=light
-colorscheme solarized
+" {
+set background=dark
+colorscheme elflord
+"}
+
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
