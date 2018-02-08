@@ -3,22 +3,22 @@
 notmuch new
 
 # serious stuff
-notmuch tag +bike-components -- from:info@bike-components.de
-notmuch tag +paypal -- from:@paypal.de or from:@paypal.com
-notmuch tag +amazon -- from:@amazon.de or from:@amazon.com
+notmuch tag +bike-components -inbox -- from:info@bike-components.de
+notmuch tag +paypal -inbox -- from:@paypal.de or from:@paypal.com
+notmuch tag +amazon -inbox -- from:@amazon.de or from:@amazon.com
 notmuch tag +private +inbox -- from:louis and not tag:sent
-notmuch tag +steam -- from:@steampowered.com
+notmuch tag +steam -inbox -- from:@steampowered.com
 notmuch tag +msc -unread -inbox -- from:@msccruises.de
-notmuch tag +lotto -- from:info@staatliche-lotterieverwaltung.de
-notmuch tag +lieferheld -- from:@lieferheld.de
-notmuch tag +komoot -- from:komoot
+notmuch tag +lotto -inbox -- from:info@staatliche-lotterieverwaltung.de
+notmuch tag +lieferheld -inbox -- from:@lieferheld.de
+notmuch tag +komoot -inbox -- from:komoot
 notmuch tag +espanien -unread -inbox -- from:@espanien.de
 notmuch tag +ticket -unread -- from:ticket@swm.de
 notmuch tag +soznet -unread -inbox -- from:@linkedin or from:@xing
-notmuch tag +studium -- from:@fernuni-hagen.de
+notmuch tag +studium -inbox -- from:@fernuni-hagen.de
 
 # Special Place in hell for those guys
-notmuch tag +newsletter -unread -inbox +killed -- from:marketing@weare.de or from:info@solidworks-community.com or from:news@ or from:newsletter@ or from:vfe-campain-response@amazon.de
+notmuch tag +newsletter -unread -inbox +killed -- from:marketing@weare.de or from:info@solidworks-community.com or from:news@ or from:newsletter@ or from:vfe-campain-response@amazon.de or from:email-frontier.co.uk or from:@eagle.ru or from:@vaporizer-markt.de or from:@mailer.netflix.com or from:@mailings.gmx.de or from:@outlook.com
 notmuch tag +facebook -unread -inbox -- from:@facebook
 notmuch tag +youtube -unread -- from:@youtube.com
 notmuch tag +killed -unread -- from:@fmp.gmx.de or from:@gmxnet.de or from:@mail.verivox.de or from:@engage.vmware.com
