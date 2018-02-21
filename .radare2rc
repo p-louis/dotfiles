@@ -1,0 +1,17 @@
+e cfg.fortunes = false
+e cfg.bigendian = false
+
+# Show comments right of disassembly
+e asm.cmtright = true
+
+# Show pseudocode in assembly
+e asm.pseudo = false
+
+# display stack and register values on top of disassembly
+e cmd.stack = true
+
+#solarized theme
+#eco solarized
+
+#use utf-8
+e scr.utf8 = true

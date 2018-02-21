@@ -1,12 +1,12 @@
 Xft.dpi: 96
 Xft.antialias: true
-!Xft.rgba: rgb
+Xft.rgba: none
 !Xft.hintin: true
-!Xft.hintstyle: hintslight
+Xft.hintstyle: hintslight
 !URXVT
 URxvt.depth: 32
-URxvt*font: xft:SauceCodePro\ NF:style=regular:pixelsize=14
-URxvt*boldFont: xft:SauceCodePro\ NF:style=bold:pixelsize=14
+URxvt*font: xft:SauceCodePro\ Nerd\ Font:style=regular:pixelsize=14
+URxvt*boldFont: xft:SauceCodePro\ Nerd\ Font:style=bold:pixelsize=14
 URxvt.scrollBar: false
 !URxvt*transparent: true
 !URxvt*shading: 15
@@ -53,14 +53,14 @@ URxvt.scrollBar: false
 ! User: caya
 ! ------------------------------------------------------------------------------
 ! "Color scheme for normal row" Set from: Default
-rofi.color-normal:                   #232323,#e5b0ff,#232323,#ac7bde,#eee8d5
+rofi.color-normal:                   #a3a3a3,#005577,#a3a3a3,#005577,#eee8d5
 ! "Color scheme for urgent row" Set from: Default
-rofi.color-urgent:                   #232323,#e5b0ff,#232323,#ac7bde,#eee8d5
+rofi.color-urgent:                   #a3a3a3,#005577,#a3a3a3,#005577,#eee8d5
 ! "Color scheme for active row" Set from: Default
-rofi.color-active:                   #232323,#e5b0ff,#232323,#ac7bde,#eee8d5
+rofi.color-active:                   #a3a3a3,#005577,#a3a3a3,#005577,#eee8d5
 ! "Color scheme window" Set from: Default
-rofi.color-window:                   #232323,#e5b0ff
+rofi.color-window:                   #a3a3a3,#005577
 ! "Separator style (none, dash, solid)" Set from: Default
 rofi.separator-style:                solid
 ! Font
-rofi.font:			     "Source Code Pro" 11
+rofi.font:			     "SauceCodePro Nerd Font" 11
