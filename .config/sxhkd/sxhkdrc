@@ -4,14 +4,25 @@
 
 # terminal emulator
 super + Return
-	lxterminal
+	st
 
-# Quake Terms
-super + e
-	~/bin/quake.sh -g -d top
 
-alt + e
-	~/bin/quake.sh -d bottom
+# numbered blocks
+super + shift + 1
+	bartermapp zsh 1
+
+super + shift + 2
+	bartermapp ranger 2
+
+super + shift + 3
+	bartermapp mutt 3
+
+super + shift + 4
+	bartermapp "vim -c TW" 4
+
+super + shift + 5
+	bartermapp "khal interactive" 5
+
 
 # program launcher
 super + space
@@ -33,7 +44,7 @@ super + q
 
 # Lock screen
 alt + l
-        ~/bin/i3-lock-fancy.sh
+        i3lock
 
 # quit bspwm normally
 super + alt + Escape

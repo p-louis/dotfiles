@@ -25,6 +25,7 @@ notmuch tag +killed -unread -- from:@fmp.gmx.de or from:@gmxnet.de or from:@mail
 notmuch tag +duolingo -unread -inbox -- from:@duolingo.com
 notmuch tag -unread -inbox +killed -- from:promotion5@amazon.de or from:riotgames.com or from:@couchsurfing.com or from:@hackerrankmail.com
 notmuch tag -unread -inbox +killed -- from:@marketing.ti.com
+notmuch tag -unread -inbox +killed -- from:mailer-daemon@gmx.de
 notmuch tag -unread -inbox -- tag:killed
 
 newMail=$(notmuch search tag:unread | wc -l)

@@ -116,7 +116,7 @@ map gd :bd<CR>
   let g:ycm_server_python_interpreter='/usr/bin/python'
   let g:ycm_add_preview_to_completeopt = 1
   let g:ycm_collect_identifiers_from_tags_files = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
+  let g:ycm_autoclose_preview_window_after_insertion = 1
 
 
 " Airline Settings
@@ -137,11 +137,12 @@ endif
 
 "Wincmds
   nmap <silent> <A-Up> :wincmd k<CR>
-  nmap <silent> <A-Down> :wincmd j<CR>
+    nmap <silent> <A-Down> :wincmd j<CR>
   nmap <silent> <A-Left> :wincmd h<CR>
   nmap <silent> <A-Right> :wincmd l<CR>
 
 " Folding settings
-  set foldmethod=indent
+set foldmethod=syntax
+set nofoldenable
 
 let g:task_rc_override = 'rc.defaultwidth=0'
