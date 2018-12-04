@@ -24,6 +24,7 @@ call vundle#begin()
     Plugin 'arzg/seoul8'
     Plugin 'junegunn/limelight.vim'
     Plugin 'junegunn/goyo.vim'
+    Plugin 'junegunn/fzf'
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/seoul256.vim'
     Plugin 'junegunn/vim-easy-align'
@@ -114,6 +115,11 @@ let g:limelight_priority = -1 " Don't overrule hlsearch
 
 " Fzf
 " ----------------------------------------------
+" This is the default extra key bindings
+let g:fzf_action = {
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
 
 " Take colours from colour scheme
 let g:fzf_colors =
@@ -135,6 +141,9 @@ let g:fzf_colors =
 autocmd vimrc FileType fzf set laststatus=0 noshowmode noruler
             \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
+let $FZF_DEFAULT_COMMAND = "find . -path '*/\.*' -type d -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//"
+
+nnoremap <C-p> :FZF<CR>
 " }}}
 
 " ==============================================================================
@@ -186,6 +195,10 @@ nnoremap ,g :Grep<Space>
 nnoremap ,c :close<CR>
 " 'tc' for tabclose
 nnoremap ,tc :tabclose<CR>
+
+" Folding switches
+nnoremap ,fm :set foldmethod=marker<CR>
+nnoremap ,fi :set foldmethod=indent<CR>
 
 " Space
 " ----------------------------------------------
