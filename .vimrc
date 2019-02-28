@@ -25,6 +25,7 @@ call vundle#begin()
     Plugin 'junegunn/limelight.vim'
     Plugin 'junegunn/goyo.vim'
     Plugin 'junegunn/fzf'
+    Plugin 'saltstack/salt-vim'
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/seoul256.vim'
     Plugin 'junegunn/vim-easy-align'
@@ -93,8 +94,8 @@ function! s:goyo_leave() " On goyo exit:
     set showmode           " Show current mode
     set scrolloff=1        " Always show one line of context around the cursor
     Limelight!             " Disable paragraph focus mode
-    colo seoul256         " Dark colours
-    set background=dark
+    colo seoul256-light         " Dark colours
+    set background=light
     if has('gui_running')
         set nofullscreen     " Exit fullscreen
         set linespace=3      " Standard leading
@@ -534,8 +535,8 @@ set relativenumber
 set number
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set foldenable
 
 syntax on

@@ -1,10 +1,10 @@
 set disassembly-flavor intel
 
-define hook-stop
-  info registers
-  x/2i $eip
-  x/16wx $esp
-end
+#define hook-stop
+#  info registers
+#  x/2i $eip
+#  x/16wx $esp
+#end
 
 #
 # __________________gdb options_________________
