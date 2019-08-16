@@ -13,27 +13,28 @@ augroup END
 " }}}
 
 " ==============================================================================
-" Vundle Plugins {{{
+" plug Plugins {{{
 " ==============================================================================
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-    " let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
+" set the runtime path to include plug and initialize
+"set rtp+=~/.vim/aut/plug.vim
+call plug#begin()
+    Plug 'arzg/seoul8'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/fzf'
+    Plug 'saltstack/salt-vim'
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/seoul256.vim'
+    Plug 'junegunn/vim-easy-align'
 
-    Plugin 'arzg/seoul8'
-    Plugin 'junegunn/limelight.vim'
-    Plugin 'junegunn/goyo.vim'
-    Plugin 'junegunn/fzf'
-    Plugin 'saltstack/salt-vim'
-    Plugin 'junegunn/fzf.vim'
-    Plugin 'junegunn/seoul256.vim'
-    Plugin 'junegunn/vim-easy-align'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
+    Plug 'scrooloose/nerdtree'
+    "Plug 'sirver/ultisnips'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " }}}
@@ -47,6 +48,130 @@ filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 
 let g:airline_theme = "base16"
+
+" Coc
+" ----------------------------------------------
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+"
+"" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+"
+"" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+"" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"
+"" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+"
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Easy align
 " ----------------------------------------------
@@ -72,8 +197,8 @@ function! s:goyo_enter()   " On goyo enter:
     set noshowmode           " Don't show current mode
     set scrolloff=999        " Centre current line
     Limelight                " Enable paragraph focus mode
-    colo seoul256-light      " Light colours
-    set background=light
+    colo seoul256            " Light colours
+    set background=dark
     if has('gui_running')
         set fullscreen         " Enter fullscreen (don't use Mac native fullscreen for this)
         set linespace=7        " Extra leading is better for prose
@@ -94,8 +219,8 @@ function! s:goyo_leave() " On goyo exit:
     set showmode           " Show current mode
     set scrolloff=1        " Always show one line of context around the cursor
     Limelight!             " Disable paragraph focus mode
-    colo seoul256-light         " Dark colours
-    set background=light
+    colo seoul256          " Dark colours
+    set background=dark
     if has('gui_running')
         set nofullscreen     " Exit fullscreen
         set linespace=3      " Standard leading
@@ -145,6 +270,30 @@ autocmd vimrc FileType fzf set laststatus=0 noshowmode noruler
 let $FZF_DEFAULT_COMMAND = "find . -path '*/\.*' -type d -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//"
 
 nnoremap <C-p> :FZF<CR>
+
+" ==============================================================================
+" Sytastic
+" ==============================================================================
+map <Leader>s :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+
 " }}}
 
 " ==============================================================================
@@ -535,13 +684,14 @@ set relativenumber
 set number
 
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set foldenable
 
 syntax on
-set background=light
-colorscheme seoul256-light
+set background=dark
+colorscheme seoul256
 
 " Folding
 " ------------------------------------------------------------------------------
