@@ -25,14 +25,19 @@ call plug#begin()
     Plug 'saltstack/salt-vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/seoul256.vim'
+    Plug 'morhetz/gruvbox'
     Plug 'junegunn/vim-easy-align'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
     Plug 'scrooloose/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     "Plug 'sirver/ultisnips'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'udalov/kotlin-vim'
+    Plug 'airblade/vim-gitgutter'
     " All of your Plugins must be added before the following line
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -43,6 +48,33 @@ filetype plugin indent on    " required
 " Plugin settings {{{
 " ==============================================================================
 
+" NERDCommenter
+"-----------------------------------------------
+nmap ++ <Plug>NERDCommenterToggle
+vmap ++ <Plug>NERDCommenterToggle
+
+" NERDTree
+"-----------------------------------------------
+nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" function! IsNERDTreeOpen()        
+"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+" 
+" function! SyncTree()
+"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"     NERDTreeFind
+"     wincmd p
+"   endif
+" endfunction
+" 
+" autocmd BufEnter * call SyncTree()
+
+" GitGutter
+" ----------------------------------------------
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
 " airline
 " ----------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
@@ -51,6 +83,10 @@ let g:airline_theme = "base16"
 
 " Coc
 " ----------------------------------------------
+
+" Create command for prettier
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -91,8 +127,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "
 "" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 "
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -110,6 +146,15 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+nmap <F2> <Plug>(coc-rename)
+
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-prettier',
+  \ 'coc-json'
+  \ ]
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -197,7 +242,7 @@ function! s:goyo_enter()   " On goyo enter:
     set noshowmode           " Don't show current mode
     set scrolloff=999        " Centre current line
     Limelight                " Enable paragraph focus mode
-    colo seoul256            " Light colours
+    colo gruvbox            " Light colours
     set background=dark
     if has('gui_running')
         set fullscreen         " Enter fullscreen (don't use Mac native fullscreen for this)
@@ -219,7 +264,7 @@ function! s:goyo_leave() " On goyo exit:
     set showmode           " Show current mode
     set scrolloff=1        " Always show one line of context around the cursor
     Limelight!             " Disable paragraph focus mode
-    colo seoul256          " Dark colours
+    colo gruvbox          " Dark colours
     set background=dark
     if has('gui_running')
         set nofullscreen     " Exit fullscreen
@@ -410,7 +455,7 @@ set virtualedit=block                 " Better visual block mode
 set belloff=all           " Disable all bells
 set colorcolumn=+1        " Show a marker one char after textwidth
 set completeopt+=menuone  " Show completions when there is a match
-set completeopt+=noselect " Required for MUComplete
+"set completeopt+=noselect " Required for MUComplete
 set completeopt+=preview  " Display extra info about the match
 set conceallevel=0        " Never conceal
 set display=lastline      " Show as much of partly-displayed lines as possible
@@ -438,7 +483,8 @@ endif
 " ----------------------------------------------
 if !has('nvim') && &ttimeoutlen == -1
     set ttimeout
-    set ttimeoutlen=100
+    set ttimeoutlen=0
+    set timeoutlen=1000
 endif
 
 " Dynamic cursor shape that does not blink
@@ -684,14 +730,14 @@ set relativenumber
 set number
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set foldenable
 
 syntax on
 set background=dark
-colorscheme seoul256
+colorscheme gruvbox
 
 " Folding
 " ------------------------------------------------------------------------------

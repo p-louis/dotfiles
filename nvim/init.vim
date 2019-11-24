@@ -31,10 +31,11 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    "Plug 'sirver/ultisnips'
+    Plug 'sirver/ultisnips'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'udalov/kotlin-vim'
     Plug 'airblade/vim-gitgutter'
@@ -47,6 +48,9 @@ filetype plugin indent on    " required
 " ==============================================================================
 " Plugin settings {{{
 " ==============================================================================
+" UltiSnips
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " NERDCommenter
 "-----------------------------------------------
@@ -316,29 +320,6 @@ let $FZF_DEFAULT_COMMAND = "find . -path '*/\.*' -type d -prune -o -type f -prin
 
 nnoremap <C-p> :FZF<CR>
 
-" ==============================================================================
-" Sytastic
-" ==============================================================================
-map <Leader>s :SyntasticToggleMode<CR>
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
-map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>lb :call LanguageClient#textDocument_references()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-
 " }}}
 
 " ==============================================================================
@@ -475,17 +456,13 @@ set tabpagemax=50         " Maximum number of tab pages
 
 " Make redrawing smoother
 " ----------------------------------------------
-if !has('nvim')
-    set ttyfast
-endif
+set ttyfast
 
-" Time out mapping after 100ms
+" Time out mapping after 1000ms
 " ----------------------------------------------
-if !has('nvim') && &ttimeoutlen == -1
-    set ttimeout
-    set ttimeoutlen=0
-    set timeoutlen=1000
-endif
+set ttimeout
+set ttimeoutlen=0
+set timeoutlen=1000
 
 " Dynamic cursor shape that does not blink
 " ----------------------------------------------
@@ -738,6 +715,7 @@ set foldenable
 syntax on
 set background=dark
 colorscheme gruvbox
+"colorscheme seoul256
 
 " Folding
 " ------------------------------------------------------------------------------
