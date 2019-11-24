@@ -13,5 +13,9 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc config top_padding         42
+
+bspc config focused_border_color  '#e65100'
+
 bspc rule -a Firefox desktop='^2'
 bspc rule -a spotify desktop='^3'
