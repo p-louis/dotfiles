@@ -23,7 +23,7 @@ bg = #aa1F1F1F
 fg = #FFFFFF
 fg-alt = #A9ABB0
 
-acolor = #FFFFFF
+acolor = #FFCC80
 curgent = #EF5350
 coccupied = #42A5F5
 

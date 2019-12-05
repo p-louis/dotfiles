@@ -38,6 +38,8 @@ super + y
 super + g
 	bspc node -s biggest
 
+super + p
+  passmenu
 #
 # state/flags
 #

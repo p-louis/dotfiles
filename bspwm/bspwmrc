@@ -4,7 +4,7 @@ sxhkd &
 compton &
 $HOME/.config/polybar/launch.sh &
 
-bspc monitor -d term firefox spotify code V VI VII VIII IX X
+bspc monitor -d term firefox spotify code 
 
 bspc config border_width         2
 bspc config window_gap          12
