@@ -1,0 +1,9 @@
+[accounts]
+    [[work]]
+        realname = Patrick Louis
+        address = patrick.louis@mailbox.org
+        alias_regexp = .+-plouis@mailbox.org
+        gpg_key = E3D9572E9CECC79C
+        sendmail_command = msmtp --account=mailbox -t
+        sent_box = maildir:///home/patrick/mail/Sent
+        draft_box = maildir://~/mail/Drafts
