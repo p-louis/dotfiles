@@ -1,0 +1,27 @@
+[general]
+# List of accounts to be synced, separated by a comma.
+accounts = mailbox
+pythonfile = ~/.offlineimap.py
+
+[Account mailbox]
+# Identifier for the local repository; e.g. the maildir to be synced via IMAP.
+localrepository = mailbox-local
+# Identifier for the remote repository; i.e. the actual IMAP, usually non-local.
+remoterepository = mailbox-remote
+
+[Repository mailbox-local]
+# OfflineIMAP supports Maildir, GmailMaildir, and IMAP for local repositories.
+type = Maildir
+# Where should the mail be placed?
+localfolders = ~/mail
+
+[Repository mailbox-remote]
+# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP.
+type = IMAP
+remotehost = imap.mailbox.org
+remoteuser = patrick.louis@mailbox.org
+remotepasseval = get_pass("mailbox")
+folderfilter = lambda foldername: foldername in ["INBOX", "Sent","SENT"]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Necessary to work around https://github.com/OfflineIMAP/offlineimap/issues/573 (versions 7.0.12, 7.2.1)
+ssl_version = tls1_2
