@@ -2,7 +2,7 @@
 
 fileList=".offlineimaprc .notmuch-config .msmtprc .zshrc .bashrc"
 configDirs="nvim bspwm sxhkd polybar alot"
-basepath="$HOME/dotfiles/"
+basepath="$HOME/dotfiles"
 
 for file in $fileList; do
   if [ -e $basepath/$file ]; then
