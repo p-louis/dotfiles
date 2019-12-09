@@ -1,11 +1,10 @@
- # This is the default filter chain
-[global]
+# This is the default filter chain
+#[global]
 
 [SpamFilter]
 [KillThreadsFilter]
 [ListMailsFilter]
 [ArchiveSentMailsFilter]
-sent_tag = sent
 
 # Custom Filters
 [Filter.1]

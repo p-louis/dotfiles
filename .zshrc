@@ -158,6 +158,7 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
 export EDITOR=nvim
+export PATH="$PATH:$HOME/bin/"
 
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
