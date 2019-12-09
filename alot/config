@@ -7,3 +7,6 @@
         sendmail_command = msmtp --account=mailbox -t
         sent_box = maildir:///home/patrick/mail/Sent
         draft_box = maildir://~/mail/Drafts
+
+[bindings]
+  % = "shellescape '/home/patrick/bin/mail.sh'; refresh"

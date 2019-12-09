@@ -1,16 +1,15 @@
  # This is the default filter chain
+[global]
+
 [SpamFilter]
 [KillThreadsFilter]
 [ListMailsFilter]
 [ArchiveSentMailsFilter]
-[InboxFilter]
+sent_tag = sent
 
 # Custom Filters
 [Filter.1]
 query = 'from:info@geld.de'
 tags = -new -inbox -unread +spam +killed +deleted
 
-[Filter.2]
-query = 'tag:lists/35468f1828f600f4a9e388540'
-tags = -lists/35468f1828f600f4a9e388540 +lists/ZSA
-
+[InboxFilter]

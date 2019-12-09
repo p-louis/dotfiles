@@ -47,7 +47,7 @@ primary_email=patrick.louis@mailbox.org
 #		in the mail store.
 #
 [new]
-tags=unread;inbox;
+tags=new;unread;inbox;
 ignore=
 
 # Search configuration
