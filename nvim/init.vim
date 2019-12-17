@@ -461,8 +461,8 @@ set ttyfast
 " Time out mapping after 1000ms
 " ----------------------------------------------
 set ttimeout
-set ttimeoutlen=0
-set timeoutlen=1000
+set ttimeoutlen=100
+set timeoutlen=3000
 
 " Dynamic cursor shape that does not blink
 " ----------------------------------------------

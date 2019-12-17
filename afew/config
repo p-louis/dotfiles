@@ -1,5 +1,4 @@
-# This is the default filter chain
-#[global]
+[global]
 
 [SpamFilter]
 [KillThreadsFilter]
@@ -7,8 +6,24 @@
 [ArchiveSentMailsFilter]
 
 # Custom Filters
-[Filter.1]
+[Filter.0]
 query = 'from:info@geld.de'
-tags = -new -inbox -unread +spam +killed +deleted
+tags = -inbox;-unread;+spam;+killed
+message = geld werbung
 
-[InboxFilter]
+[Filter.1]
+query = 'from:@amazon.com or from:@amazon.de'
+tags = +amazon
+message = amazon mails
+
+[Filter.3]
+query = 'from:@mail.xing.com'
+tags = -inbox;+xing;+junk
+message = xing
+
+[Filter.2]
+query = 'not tag:killed and not tag:junk and not tag:inbox'
+tags = +inbox
+message = inbox filter
+
+#[InboxFilter]
