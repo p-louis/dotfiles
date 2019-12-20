@@ -11,7 +11,7 @@ for file in $fileList; do
 done
 
 for folder in $configDirs; do
-  if [ -e "$basepath/$folder" ] && [ ! -e "$HOME/.config/$folder" ]; then
-    ln -s "$basepath/$folder" "$HOME/.config/$folder" || true
+  if [ -e "$basepath/config/$folder" ] && [ ! -e "$HOME/.config/$folder" ]; then
+    ln -s "$basepath/config/$folder" "$HOME/.config/$folder" || true
   fi
 done
