@@ -10,3 +10,6 @@ undo
 elpa
 
 *.o
+
+.newsboat/cache.db
+
