@@ -3,6 +3,3 @@ from subprocess import check_output
 
 def get_pass(account):
     return check_output("pass accounts/" + account, shell=True).splitlines()[0]
-
-
-&?_-;#~<>/!%[]¬:=^${}£'@&?_--;`*+'#~<>/
