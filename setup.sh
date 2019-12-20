@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fileList=".offlineimaprc .offlineimap.py .notmuch-config .msmtprc .zshrc .bashrc"
+fileList=".offlineimaprc .offlineimap.py .notmuch-config .msmtprc .zshrc .bashrc .newsboat"
 configDirs="nvim bspwm sxhkd polybar alot afew"
 basepath="$HOME/dotfiles"
 
