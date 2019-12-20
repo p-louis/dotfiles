@@ -1,6 +1,7 @@
 #! /bin/sh
 
 sxhkd &
+nitrogen --restore &
 compton &
 $HOME/.config/polybar/launch.sh &
 
