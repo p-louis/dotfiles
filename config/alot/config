@@ -9,7 +9,6 @@
     draft_box = maildir://~/mail/Drafts
 
 [bindings]
+  % = "shellescape '/home/patrick/bin/mail.sh'; refresh"
   [[thread]]
     v = pipeto urlscan 2>/dev/null
-
-  % = "shellescape '/home/patrick/bin/mail.sh'; refresh"

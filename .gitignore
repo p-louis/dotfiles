@@ -8,3 +8,5 @@ undo
 .netrwhist
 
 elpa
+
+*.o

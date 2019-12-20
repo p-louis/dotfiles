@@ -1,0 +1,29 @@
+[global]
+
+[SpamFilter]
+[KillThreadsFilter]
+[ListMailsFilter]
+[ArchiveSentMailsFilter]
+
+# Custom Filters
+[Filter.0]
+query = 'from:info@geld.de'
+tags = -inbox;-unread;+spam;+killed
+message = geld werbung
+
+[Filter.1]
+query = 'from:@amazon.com or from:@amazon.de'
+tags = +amazon
+message = amazon mails
+
+[Filter.3]
+query = 'from:@mail.xing.com'
+tags = -inbox;+xing;+junk
+message = xing
+
+[Filter.2]
+query = 'not tag:killed and not tag:junk and not tag:inbox'
+tags = +inbox
+message = inbox filter
+
+#[InboxFilter]
