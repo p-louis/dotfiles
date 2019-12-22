@@ -23,7 +23,7 @@ message = xing
 
 [Filter.2]
 query = 'not tag:killed and not tag:junk and not tag:inbox'
-tags = +inbox
+tags = +inbox;-new
 message = inbox filter
 
 #[InboxFilter]
