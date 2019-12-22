@@ -3,7 +3,6 @@
 ------------------------
 https://distrowatch.com/news/dw.xml "~NEWSFEED: DistroWatch" 
 http://lxer.com/module/newswire/headlines.rss "~NEWSFEED: LXer"
-https://www.linux.com/feeds/news/rss "~NEWSFEED: Linux.com"
 https://www.linuxjournal.com/news/feed "~NEWSFEED: Linux Journal"
 https://www.networkworld.com/category/linux/index.rss "~NEWSFEED: Network World (Linux)"
 https://www.computerworld.com/index.rss "~NEWSFEED: Computer World"
@@ -28,7 +27,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~Y
 https://www.youtube.com/feeds/videos.xml?channel_id=UCwY9B5_8QDGP8niZhBtTh8w "~YOUTUBE: TWiT Netcast"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCHugE6eRhqB9_AZQh4DDbIw "~YOUTUBE: Jupiter Broadcasting"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCkK9UDm_ZNrq_rIXCz3xCGA "~YOUTUBE: Bryan Lunduke"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~YOUTUBE: Luke Smith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCbHXJGd7c8Hy4z0-YX1Jf3Q "~YOUTUBE: Matt Hartley"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCWJUSpXVHTaHErtGWC5qPlQ "~YOUTUBE: Destination Linux"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC4w1YQAJMWOz4qtxinq55LQ "~YOUTUBE: Level1Techs"
@@ -52,13 +50,11 @@ https://www.reddit.com/r/unixporn.rss "~REDDIT: r/unixporn"
 -------------------------
 -------GIT_REPOS---------
 -------------------------
---https://gitlab.com/dwt1.atom "~GITLAB: dwt1 (distrotube)"
---https://github.com/LukeSmithxyz.atom "~GITHUB: LukeSmithxyz"
+https://github.com/Fuzzelor/dotfiles/commits/master.atom "~GITHUB: dotfiles"
+https://gitlab.com/Fuzzelor/hash-crack.atom "~GITLAB: hash-crack"
 -------------------------
 -------SOURCEFORGE-------
 -------------------------
-https://sourceforge.net/p/mx-linux/activity/feed "~SORUCEFORGE: MX Linux"
-https://sourceforge.net/p/antix-linux/activity/feed "~SOURCEFORGE: AntiX"
 https://sourceforge.net/mirror/tor-browser/activity/feed "~SOURCEFORGE: Tor Browser"
 -------------------------
 -------ARCHLINUX---------
