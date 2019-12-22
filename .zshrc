@@ -158,6 +158,7 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
 export EDITOR=nvim
+export VISUAL=nvim
 export PATH="$PATH:$HOME/bin/:$HOME/.local/bin/"
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 
@@ -213,3 +214,4 @@ base16_shell="$home/.config/base16-shell/"
 alias vim=nvim
 
 setxkbmap us
+set -o vi 
