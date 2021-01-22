@@ -1,0 +1,110 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+#	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap # #N$/;"	m	language:Vim
+$FZF_DEFAULT_COMMAND	/home/plouis/dotfiles/config/nvim/init.vim	/^let $FZF_DEFAULT_COMMAND = "find . -path '*\/\\.*' -type d -prune -o -type f -print -o -type l -/;"	v	language:Vim
+*	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap * *N$/;"	m	language:Vim
+++	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap ++ <Plug>NERDCommenterToggle$/;"	m	language:Vim
+++	/home/plouis/dotfiles/config/nvim/init.vim	/^vmap ++ <Plug>NERDCommenterToggle$/;"	m	language:Vim
+,,	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,, :bnext<CR>$/;"	m	language:Vim
+,b	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,b :ls<CR>:buffer<Space>$/;"	m	language:Vim
+,c	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,c :close<CR>$/;"	m	language:Vim
+,e	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,e :edit<Space>$/;"	m	language:Vim
+,f	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,f :find<Space>$/;"	m	language:Vim
+,fi	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,fi :set foldmethod=indent<CR>$/;"	m	language:Vim
+,fm	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,fm :set foldmethod=marker<CR>$/;"	m	language:Vim
+,g	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,g :Grep<Space>$/;"	m	language:Vim
+,s	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,s :split<CR>$/;"	m	language:Vim
+,sb	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,sb :ls<CR>:sbuffer<Space>$/;"	m	language:Vim
+,se	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,se :split<Space>$/;"	m	language:Vim
+,sf	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,sf :sfind<Space>$/;"	m	language:Vim
+,ss	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,ss :split<CR>$/;"	m	language:Vim
+,t	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,t :tabnew<CR>$/;"	m	language:Vim
+,tb	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,tb :tabnew<CR>:ls<CR>:buffer<Space>$/;"	m	language:Vim
+,tc	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,tc :tabclose<CR>$/;"	m	language:Vim
+,te	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,te :tabnew<Space>$/;"	m	language:Vim
+,tf	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,tf :tabfind<Space>$/;"	m	language:Vim
+,tt	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,tt :tabnew<CR>$/;"	m	language:Vim
+,v	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,v :vsplit<CR>$/;"	m	language:Vim
+,vb	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,vb :ls<CR>:vert sbuffer<Space>$/;"	m	language:Vim
+,ve	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,ve :vsplit<Space>$/;"	m	language:Vim
+,vf	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,vf :vert sfind<Space>$/;"	m	language:Vim
+,vv	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap ,vv :vsplit<CR>$/;"	m	language:Vim
+<C-p>	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <C-p> :FZF<CR>$/;"	m	language:Vim
+<c-space>	/home/plouis/dotfiles/config/nvim/init.vim	/^inoremap <silent><expr> <c-space> coc#refresh()$/;"	m	language:Vim
+<cr>	/home/plouis/dotfiles/config/nvim/init.vim	/^inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m	language:Vim
+<F2>	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <F2> <Plug>(coc-rename)$/;"	m	language:Vim
+<leader>a	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m	language:Vim
+<leader>a	/home/plouis/dotfiles/config/nvim/init.vim	/^xmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m	language:Vim
+<leader>ac	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <leader>ac  <Plug>(coc-codeaction)$/;"	m	language:Vim
+<leader>f	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <leader>f  <Plug>(coc-format-selected)$/;"	m	language:Vim
+<leader>f	/home/plouis/dotfiles/config/nvim/init.vim	/^xmap <leader>f  <Plug>(coc-format-selected)$/;"	m	language:Vim
+<Leader>n	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Leader>n :NERDTreeToggle<CR>$/;"	m	language:Vim
+<leader>qf	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <leader>qf  <Plug>(coc-fix-current)$/;"	m	language:Vim
+<Leader>r	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> <Leader>r <Plug>(coc-format)$/;"	m	language:Vim
+<leader>rn	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <leader>rn <Plug>(coc-rename)$/;"	m	language:Vim
+<Leader>t	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Leader>t :TlistToggle<CR>$/;"	m	language:Vim
+<S-TAB>	/home/plouis/dotfiles/config/nvim/init.vim	/^inoremap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<C-h>"$/;"	m	language:Vim
+<S-TAB>	/home/plouis/dotfiles/config/nvim/init.vim	/^xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)$/;"	m	language:Vim
+<Space>%	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>%       :%s\/\\<<C-r>=expand("<cword>")<CR>\\>\/$/;"	m	language:Vim
+<Space><Space>	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space><Space> :'{,'}s\/\\<<C-r>=expand("<cword>")<CR>\\>\/$/;"	m	language:Vim
+<space>a	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>$/;"	m	language:Vim
+<space>c	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>c  :<C-u>CocList commands<cr>$/;"	m	language:Vim
+<space>e	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>$/;"	m	language:Vim
+<Space>g	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>g :Goyo<CR>$/;"	m	language:Vim
+<Space>i	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>i mzgg=G`zzz$/;"	m	language:Vim
+<space>j	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>j  :<C-u>CocNext<CR>$/;"	m	language:Vim
+<space>k	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>k  :<C-u>CocPrev<CR>$/;"	m	language:Vim
+<Space>l	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>l :Limelight!!<CR>$/;"	m	language:Vim
+<Space>m	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>m :update<CR>:make<CR>$/;"	m	language:Vim
+<space>o	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>o  :<C-u>CocList outline<cr>$/;"	m	language:Vim
+<space>p	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>p  :<C-u>CocListResume<CR>$/;"	m	language:Vim
+<Space>r	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>r :redraw!<CR>$/;"	m	language:Vim
+<space>s	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>$/;"	m	language:Vim
+<Space>s	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <Space>s mzvip:sort<CR>`z$/;"	m	language:Vim
+<TAB>	/home/plouis/dotfiles/config/nvim/init.vim	/^inoremap <silent><expr> <TAB>$/;"	m	language:Vim
+<TAB>	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> <TAB> <Plug>(coc-range-select)$/;"	m	language:Vim
+<TAB>	/home/plouis/dotfiles/config/nvim/init.vim	/^xmap <silent> <TAB> <Plug>(coc-range-select)$/;"	m	language:Vim
+Fold	/home/plouis/dotfiles/config/nvim/init.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c	language:Vim
+Format	/home/plouis/dotfiles/config/nvim/init.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c	language:Vim
+g#	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap g# g#N$/;"	m	language:Vim
+g*	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap g* g*N$/;"	m	language:Vim
+g:airline#extensions#tabline#enabled	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:airline#extensions#tabline#enabled = 1$/;"	v	language:Vim
+g:airline_powerline_fonts	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:airline_powerline_fonts = 1 $/;"	v	language:Vim
+g:airline_theme	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:airline_theme = "bubblegum"$/;"	v	language:Vim
+g:coc_global_extensions	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:coc_global_extensions = [$/;"	v	language:Vim
+g:easytags_always_enabled	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:easytags_always_enabled = 1$/;"	v	language:Vim
+g:easytags_dynamic_files	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim
+g:easytags_include_members	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:easytags_include_members = 1$/;"	v	language:Vim
+g:easy_align_delimiters	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:easy_align_delimiters = { '%': {$/;"	v	language:Vim
+g:fzf_action	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:fzf_action = {$/;"	v	language:Vim
+g:fzf_colors	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:fzf_colors =$/;"	v	language:Vim
+g:goyo_width	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:goyo_width = 68 " Leave a few extra chars more than textwidth$/;"	v	language:Vim
+g:limelight_paragraph_span	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:limelight_paragraph_span = 1  " Don't dim one par around the current one$/;"	v	language:Vim
+g:limelight_priority	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:limelight_priority = -1 " Don't overrule hlsearch$/;"	v	language:Vim
+g:material_style	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:material_style='palenight'$/;"	v	language:Vim
+g:rainbow_active	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:rainbow_active = 1$/;"	v	language:Vim
+g:rainbow_ctermfgs	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']$/;"	v	language:Vim
+g:rainbow_guifgs	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']$/;"	v	language:Vim
+g:rainbow_load_separately	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:rainbow_load_separately = [$/;"	v	language:Vim
+g:UltiSnipsJumpBackwardTrigger	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:UltiSnipsJumpBackwardTrigger="<c-z>"$/;"	v	language:Vim
+g:UltiSnipsJumpForwardTrigger	/home/plouis/dotfiles/config/nvim/init.vim	/^let g:UltiSnipsJumpForwardTrigger="<c-b>"$/;"	v	language:Vim
+ga	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap ga <Plug>(EasyAlign)$/;"	m	language:Vim
+ga	/home/plouis/dotfiles/config/nvim/init.vim	/^xmap ga <Plug>(EasyAlign)$/;"	m	language:Vim
+gd	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m	language:Vim
+ggr	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> ggr <Plug>(coc-rename)$/;"	m	language:Vim
+gi	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m	language:Vim
+gr	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m	language:Vim
+Grep	/home/plouis/dotfiles/config/nvim/init.vim	/^command! -nargs=+ -complete=file_in_path -bar Grep$/;"	c	language:Vim
+gy	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m	language:Vim
+K	/home/plouis/dotfiles/config/nvim/init.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m	language:Vim
+mygroup	/home/plouis/dotfiles/config/nvim/init.vim	/^augroup mygroup$/;"	a	language:Vim
+OR	/home/plouis/dotfiles/config/nvim/init.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c	language:Vim
+ProxyIconTitle	/home/plouis/dotfiles/config/nvim/init.vim	/^function! ProxyIconTitle(prefix,suffix) abort$/;"	f	language:Vim
+s:check_back_space	/home/plouis/dotfiles/config/nvim/init.vim	/^function! s:check_back_space() abort$/;"	f	language:Vim
+s:goyo_enter	/home/plouis/dotfiles/config/nvim/init.vim	/^function! s:goyo_enter()   " On goyo enter:$/;"	f	language:Vim
+s:goyo_leave	/home/plouis/dotfiles/config/nvim/init.vim	/^function! s:goyo_leave() " On goyo exit:$/;"	f	language:Vim
+s:show_documentation	/home/plouis/dotfiles/config/nvim/init.vim	/^function! s:show_documentation()$/;"	f	language:Vim
+vimrc	/home/plouis/dotfiles/config/nvim/init.vim	/^augroup vimrc$/;"	a	language:Vim
+[g	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> [g <Plug>(coc-diagnostic-prev)$/;"	m	language:Vim
+[h	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap [h <Plug>(GitGutterPrevHunk)$/;"	m	language:Vim
+]g	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap <silent> ]g <Plug>(coc-diagnostic-next)$/;"	m	language:Vim
+]h	/home/plouis/dotfiles/config/nvim/init.vim	/^nmap ]h <Plug>(GitGutterNextHunk)$/;"	m	language:Vim
