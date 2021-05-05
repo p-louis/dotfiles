@@ -1,4 +1,5 @@
-" ==============================================================================
+"Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc' ==============================================================================
 " plug Plugins {{{
 " ==============================================================================
 " set the runtime path to include plug and initialize
@@ -28,8 +29,11 @@ call plug#begin()
     Plug 'airblade/vim-gitgutter'
     Plug 'airblade/vim-rooter'
 
+    Plug 'saltstack/salt-vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'sirver/ultisnips'
+
+    Plug 'neoclide/coc.nvim', {'branch':'release'}
 
     Plug 'vimwiki/vimwiki'
     Plug 'liuchengxu/vim-which-key'

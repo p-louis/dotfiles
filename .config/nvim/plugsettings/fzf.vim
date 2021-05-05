@@ -37,11 +37,11 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 nnoremap <C-p> :FZF<CR>
-map ,rf :Files<CR>
-map ,rb :Buffers<CR>
-nnoremap ,rg :RG<CR>
-nnoremap ,rt :Tags<CR>
-nnoremap ,rm :Marks<CR>
+map <leader>rf :Files<CR>
+map <leader>rb :Buffers<CR>
+nnoremap <leader>rg :RG<CR>
+nnoremap <leader>rt :Tags<CR>
+nnoremap <leader>rm :Marks<CR>
 
 "Get Files
 command! -bang -nargs=? -complete=dir Files

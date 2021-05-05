@@ -1,6 +1,7 @@
 " ==============================================================================
 " Intitialize 
 " ==============================================================================
+let mapleader=","
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -12,6 +13,7 @@ augroup END
 
 so $HOME/.config/nvim/plugins.vim
 
+let g:python3_host_prog=/usr/bin/python3
 syntax on
 filetype plugin indent on    " required
 
@@ -34,10 +36,25 @@ so $HOME/.config/nvim/plugsettings/vim-startify.vim
 so $HOME/.config/nvim/plugsettings/vim-sneak.vim
 so $HOME/.config/nvim/plugsettings/colorizer.vim
 
+so $HOME/.config/nvim/sls_commands.vim
+so $HOME/.config/nvim/tex_commands.vim
+
 
 " ==============================================================================
 " Bindings 
 " ==============================================================================
+" Lambda calc
+imap .lll <C-v>u03bb
+imap .aaa <C-v>u03b1
+imap .bbb <C-v>u03b2
+imap .ccc <C-v>u03b3
+imap .ddd <C-v>u03b4
+imap .eee <C-v>u03b5
+imap .fff <C-v>u03b6
+imap .ggg <C-v>u03b7
+imap .hhh <C-v>u03b8
+
+imap .OOO <C-v>u03a9
 
 " Comma
 " ----------------------------------------------
@@ -45,37 +62,37 @@ so $HOME/.config/nvim/plugsettings/colorizer.vim
 " Juggling with buffers
 " Comma, how you want to view the buffer, then b
 " 'b' for buffer
-nnoremap ,b :ls<CR>:buffer<Space>
-nnoremap ,sb :ls<CR>:sbuffer<Space>
-nnoremap ,vb :ls<CR>:vert sbuffer<Space>
-nnoremap ,, :bnext<CR>
-nnoremap ,bd :bd<CR>
+nnoremap <leader>b :ls<CR>:buffer<Space>
+nnoremap <leader>sb :ls<CR>:sbuffer<Space>
+nnoremap <leader>vb :ls<CR>:vert sbuffer<Space>
+nnoremap <leader><leader> :bnext<CR>
+nnoremap <leader>bd :bd<CR>
 
 " Juggling with files
-" Same for opening new files, just replace b with f (for recursive, just like
-" :find) or e (for non-recursive, just like :edit)
+" Same for opening new files<leader> just replace b with f (for recursive<leader> just like
+" :find) or e (for non-recursive<leader> just like :edit)
 " 'f' for find
 " 'e' for edit
-nnoremap ,e :edit<Space>
-nnoremap ,se :split<Space>
-nnoremap ,ve :vsplit<Space>
+nnoremap <leader>e :edit<Space>
+nnoremap <leader>se :split<Space>
+nnoremap <leader>ve :vsplit<Space>
 
 " Juggling with windows
-" Same bindings for split/vsplit/tab as above, just double the letter *or* wait
+" Same bindings for split/vsplit/tab as above<leader> just double the letter *or* wait
 " for the timeout
-nnoremap ,s :split<CR>
-nnoremap ,t :tabnew<CR>
-nnoremap ,v :vsplit<CR>
+nnoremap <leader>s :split<CR>
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>v :vsplit<CR>
 
 " Close stuff
 " 'c' for close
-nnoremap ,c :close<CR>
+nnoremap <leader>c :close<CR>
 " 'tc' for tabclose
-nnoremap ,tc :tabclose<CR>
+nnoremap <leader>tc :tabclose<CR>
 
 " Folding switches
-nnoremap ,fm :set foldmethod=marker<CR>
-nnoremap ,fi :set foldmethod=indent<CR>
+nnoremap <leader>fm :set foldmethod=marker<CR>
+nnoremap <leader>fi :set foldmethod=indent<CR>
 
 " Space
 " ----------------------------------------------
@@ -97,7 +114,8 @@ nnoremap <Space>r :redraw!<CR>
 nnoremap <Space>m :update<CR>:make<CR>
 
 " Quick 'n' easy find-and-replace
-nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <Space><Space> /<><CR>c2l
+nnoremap <Space>c :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <Space>%       :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " ==============================================================================
@@ -247,13 +265,13 @@ set viminfo+=! " Save uppercase variables into viminfo (default behavoiur)
 " Undo
 " ----------------------------------------------
 
-" Only use persistent undo if Vim has it compiled in
+" Only use persistent undo if.local/share/nvim has it compiled in
 if has('persistent_undo')
-    set undodir=~/.vim/undo " Save undo history here
+    set undodir=~/.local/share/nvim/undo " Save undo history here
     set undofile            " Keep undo history between sessions
     " Automatically create directory for undo if it does not exist
-    if !isdirectory(expand('~').'/.vim/undo')
-        !mkdir -p $HOME/.vim/undo
+    if !isdirectory(expand('~').'/.local/share/nvim/undo')
+        !mkdir -p $HOME/.local/share/nvim/undo
     endif
 endif
 
@@ -261,23 +279,23 @@ endif
 " ----------------------------------------------
 
 set backup                  " Make a backup of every file you open in Vim
-set backupdir=~/.vim/backup " Save backups here
+set backupdir=~/.local/share/nvim/backup " Save backups here
 
 " Automatically create directory for backups if it does not exist
-if !isdirectory(expand('~').'/.vim/backup')
-    !mkdir -p $HOME/.vim/backup
+if !isdirectory(expand('~').'/.local/share/nvim/backup')
+    !mkdir -p $HOME/.local/share/nvim/backup
 endif
 
 " Swapfiles
 " ----------------------------------------------
 
 set swapfile                " Create swapfiles
-set directory=~/.vim/swap// " Save swap files here
+set directory=~/.local/share/nvim/swap// " Save swap files here
 
 " Automatically create directory for swapfiles if it does not exist
 " ----------------------------------------------
-if !isdirectory(expand('~').'/.vim/swap')
-    !mkdir -p $HOME/.vim/swap
+if !isdirectory(expand('~').'/.local/share/nvim/swap')
+    !mkdir -p $HOME/.local/share/nvim/swap
 endif
 
 " Searching, substitute, global, etc
@@ -406,3 +424,7 @@ if has('folding')
     set foldmarker={{{,}}}
     set foldtext=caya#settings#foldtext()
 endif
+
+" AutoCmds
+autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
+autocmd BufWritePost ~/.local/src/dmenu/config.h !cd ~/.local/src/dmenu/; sudo make install && { killall -q dmenu;setsid dmenu & }
