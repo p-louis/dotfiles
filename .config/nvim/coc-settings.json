@@ -8,7 +8,10 @@
     },
     "kotlin": {
         "command": "/home/plouis/temp/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
-        "filetypes": ["kotlin"]
+        "filetypes": ["kotlin"],
+        "settings": {
+            "kotlin.compiler.jvm.target": "1.8"
+        }
     }
   }
 }
