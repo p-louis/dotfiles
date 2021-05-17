@@ -18,3 +18,10 @@ unclutter &		# Remove mouse when idle
 pidof -s runit &&
 	! pidof -s pulseaudio >/dev/null 2>&1 &&
 	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1
+
+xsetroot -cursor_name left_ptr
+
+/usr/bin/prime-offload
+
+xss-lock /usr/local/bin/lock-screen &
+wmname LG3D
