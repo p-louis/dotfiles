@@ -53,7 +53,6 @@ A,zsh-fast-syntax-highlighting,provides syntax highlighting in the shell.
 A,polybar-dwm-module,provides a nice to look at statusbar for dwm.
 A,task-spooler,queues commands or files for download.
 A,simple-mtpfs,enables the mounting of cell phones.
-G,https://github.com/p-louis/dwmblocks.git,serves as the modular status bar.
 G,https://github.com/p-louis/dmenu.git,runs commands and provides a UI for selection.
 G,https://github.com/p-louis/st.git,suckless terminal emulator
 G,https:/github.com/p-louis/dwm.git,is the window manager.
