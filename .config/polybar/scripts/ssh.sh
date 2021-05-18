@@ -6,7 +6,7 @@ chosen=$( \
     cat $HOME/.ssh/config | \
     grep -Ei "^[hH]ost .*$" | \
     awk '{print $2}' | \
-    dmenu -x 250 -y 32 -l 10 -z 400 -i -p "ssh:" | \
+    dmenu -x 360 -y 32 -l 10 -z 400 -i -p "ssh:" | \
     sed "s/ .*//")
 
 # Exit if none chosen.
