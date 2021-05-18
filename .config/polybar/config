@@ -43,7 +43,7 @@ cursor-click = pointer
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-modules-left = arch workspaces google github reddit youtube
+modules-left = arch workspaces ssh github reddit youtube
 modules-center = title
 modules-right = mpd pkg volume battery network date powermenu
 
@@ -59,4 +59,4 @@ modules-right = mpd pkg volume battery network date powermenu
 ;| $$     \ \$$    $$| $$      
 ; \$$$$$$$$  \$$$$$$  \$$      
 ;
-;
+; vim:ft=dosini

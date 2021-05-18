@@ -38,7 +38,6 @@ shade8 = #BADBCA
 ashade8 = #041326
 
 ## Material Colors
-
 red = #e53935
 pink = #d81b60
 purple = #8e24aa
@@ -71,4 +70,4 @@ blue-gray = #546e7a
 ;| $$     \ \$$    $$| $$      
 ; \$$$$$$$$  \$$$$$$  \$$      
 ;
-;
+; vim:ft=dosini

@@ -12,17 +12,6 @@
 ;                                                                         
 ;                                                                        
 ;=========================================================================
-
-[module/arch]
-type = custom/text
-content = 
-;alt icons = 
-content-padding = 2
-content-background = ${color.shade1}
-content-foreground = ${color.fg}
-click-left = ~/.config/polybar/scripts/launch.sh
-click-right = ~/.config/polybar/scripts/launch.sh
-
 [module/title]
 type = internal/xwindow
 format-padding = 2
@@ -33,6 +22,15 @@ format = <label>
 label = %title%
 label-maxlen = 40
 radius = 8
+
+[module/arch]
+type = custom/text
+content = 
+;alt icons = 
+content-padding = 2
+content-background = ${color.shade1}
+content-foreground = ${color.fg}
+click-left = ~/.config/polybar/scripts/launch.sh
 
 [module/workspaces]
 type = internal/dwm
@@ -77,13 +75,13 @@ label-focused-foreground = ${color.curgent}
 label-unfocused-foreground = ${color.acolor}
 label-visible-foreground = ${color.fg}
 
-[module/google]
+[module/ssh]
 type = custom/text
-content = 
+content = 
 content-padding = 2
 content-background = ${color.shade3}
 content-foreground = ${color.fg}
-click-left = xdg-open https://www.google.com/ 
+click-left = ~/.config/polybar/scripts/ssh.sh
 
 [module/github]
 type = custom/text
@@ -238,4 +236,4 @@ click-right = ~/.config/polybar/scripts/powermenu-alt
 ;| $$     \ \$$    $$| $$      
 ; \$$$$$$$$  \$$$$$$  \$$      
 ;
-;
+; vim:ft=dosini
