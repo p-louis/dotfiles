@@ -20,8 +20,8 @@ content = 
 content-padding = 2
 content-background = ${color.shade1}
 content-foreground = ${color.fg}
-click-left = ~/.config/polybar/scripts/launcher
-click-right = ~/.config/polybar/scripts/launcher-alt
+click-left = ~/.config/polybar/scripts/launch.sh
+click-right = ~/.config/polybar/scripts/launch.sh
 
 [module/title]
 type = internal/xwindow
