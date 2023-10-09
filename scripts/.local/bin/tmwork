@@ -1,0 +1,13 @@
+#!/bin/sh
+
+tmux new -s "Work" neomutt
+tmux split-window khal interactive
+tmux rename-window -t 0 "Organisation"
+tmux new-window shellcaster
+tmux rename-window -t 1 "Podcasts"
+tmux new-window newsboat
+tmux rename-window -t 2 "RSS-Feeds"
+tmux new-window
+tmux detach
+tmux attach -t "Work"
+

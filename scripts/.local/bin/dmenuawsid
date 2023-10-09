@@ -1,0 +1,10 @@
+#!/bin/sh
+
+awsIdFile="$HOME/.local/share/aws/awsids" 
+selection=$(cat "$awsIdFile" | awk '{print $2}'| dmenu)
+
+if [[ ! -z $selection ]]; then
+    grep "$selection" "$awsIdFile" | awk '{print $1}' | xclip -i
+else
+    echo "Nothing selected"
+fi

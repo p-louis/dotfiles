@@ -1,0 +1,61 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
+
+# QOL aliases
+alias \
+    l="lsd --group-dirs first" \
+    la="lsd --group-dirs first -a" \
+    dcu="docker-compose up -d" \
+    dcd="docker-compose down -d" \
+    vcf="vim ~/.config/vim/vimrc"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	sdn="sudo shutdown -h now" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+	z="zathura" \
+  kl="khal --color list"
+
+alias \
+  lf="lfub" \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+
+alias \
+  doxistunnel="ssh -L 8080:172.16.1.141:8080 aws-mk-jump-host-prod" \
+  smtptunnel="ssh -L 5000:localhost:5000 aws-mk-smtp-host" \
+  zitisvpn="sudo openvpn --daemon --config /etc/openvpn/client/openvpn-iq.ovpn" \
+  sa="ssh-add ~/.ssh/id_ed25519"
+
+alias \
+  mvn="mvn -gs \"$XDG_CONFIG_HOME\"/maven/settings.xml" \
+  wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\"" \
+  abook="abook --config \"$XDG_CONFIG_HOME\"/abook/abookrc --datafile \"$XDG_DATA_HOME\"/abook/addressbook" \
+  khal="khal --color"

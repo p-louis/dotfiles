@@ -1,0 +1,38 @@
+#!/bin/sh
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="nvim,tools,shell,xconfig,scripts"
+fi
+
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles/master
+fi
+
+STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES 
+
+scriptDir="$(dirname $0)"
+# Prepare directories
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.cache"
+mkdir -p "$HOME/.local/share"
+mkdir -p "$HOME/.local/src"
+mkdir -p "$HOME/.local/runtime"
+mkdir -p "$HOME/.local/state"
+mkdir -p "$HOME/.local/lib"
+
+pushd "$DOTFILES"
+for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
+do
+    echo "stow -t ~ $folder"
+    stow -t ~ -R "$folder"
+done
+popd
+
+zshSetup="export ZDOTDIR=\$HOME/.config/zsh"
+
+# Prepare zsh for moved config dir
+if grep -q "^$zshSetup$" "/etc/zsh/zshenv"; then
+  echo "ZSH already prepared"
+else
+  sudo echo "$zshSetup" >> "/etc/zsh/zshenv"
+fi
+

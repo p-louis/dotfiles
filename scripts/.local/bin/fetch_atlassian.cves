@@ -1,0 +1,7 @@
+#!/bin/bash
+
+CONFLUENCE_VERSION="7.19.12"
+JIRA_VERSION="9.4.8"
+
+confluenceCVEs=$(EVcurl "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:atlassian:confluence_server:$CONFLUENCE_VERSION:*:*:*:*:*:*:*")
+jiraCVEs=$(curl "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:atlassian:jira_server:$JIRA_VERSION:*:*:*:*:*:*:*")

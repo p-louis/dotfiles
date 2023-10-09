@@ -1,0 +1,35 @@
+#!/bin/sh
+
+
+function newSession() {
+  echo -n "Name for new Session: "
+  read sessionName
+  tmux new -s "${sessionName}"
+}
+
+sessions=$(tmux ls | grep -oE '^[^:]*')
+
+echo -e "\t[1] New Session"
+echo -e "\t[2] Work Session"
+i=3
+for session in $sessions; do
+  sessionsIndexed[$i]="${session}"
+  echo -e "\t[$i] ${session}"
+  i=$(($i + 1))
+done
+echo -n "Select the requested option or enter 0 to exit: "
+read target
+
+if [ $target -eq 1 ];then
+  newSession
+elif [ $target -eq 2 ];then
+  tmwork
+elif [ $target -eq 0 ];then
+  exit 0
+else 
+  echo "Attaching to Session [${target}] - ${sessionsIndexed[$target]}"
+  sessionName=${sessionsIndexed[$target]}
+  tmux a -t "${sessionName}"
+fi
+
+

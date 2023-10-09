@@ -1,0 +1,28 @@
+#!/bin/sh
+
+tenantName=$1
+tenantPassName=$2
+migrationVersion=$3
+
+tokenDev=$(pass lpd/ionity/htb/api-token/dev/emsp_pricing/${tenantPassName})
+tokenProd=$(pass lpd/ionity/htb/api-token/prod/emsp_pricing/${tenantPassName})
+
+function createMigration() {
+    name=$1
+    token=$2
+    if [[ -d "./migration-${name}" ]]; then
+        file="./migration-${name}/V${migrationVersion}__Onboarding_${tenantName}.sql"
+        if [[ -f "$file" ]]; then
+            echo "${name}-Migration already exists"
+            exit 1
+        fi
+        echo "Creating ${name}-Migration"
+        # touch "$file"   
+        hash=$(echo -n "${token}${tenantName}" | md5sum | awk '{print $1}')
+        echo "CALL create_tenant('${tenantName}', 'md5${hash}');" > "$file"
+    fi
+}
+
+createMigration "test" "${tokenDev}"
+createMigration "uat" "${tokenDev}"
+createMigration "prod" "${tokenProd}"

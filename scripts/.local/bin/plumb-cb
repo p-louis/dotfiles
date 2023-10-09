@@ -1,0 +1,5 @@
+#!/bin/bash
+
+text="$(xclip -o)"; [ -z "$text" ] && exit
+echo -n "$text" | plumb
+

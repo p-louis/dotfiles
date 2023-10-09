@@ -1,0 +1,108 @@
+#!/bin/sh
+set -e
+
+TEMPO_URL="https://api.tempo.io/4"
+JIRA_URL="https://link-time.atlassian.net/rest/api/2"
+
+dataDir="${XDG_DATA_HOME:-$HOME/.local/share}/tempo"
+
+if [ ! -d "$dataDir" ]; then
+  mkdir -p "$dataDir"
+fi
+
+function is_int()  { case ${1#[-+]} in '' | *[!0-9]*              ) return 1;; esac ;}
+
+function getAccounts() {
+  account=$1
+  curl -s\
+    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    "${TEMPO_URL}/accounts" |
+    jq '.results | map({key,name})'
+}
+
+function getAccountLinks() {
+  account=$1
+  curl -s\
+    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    "${TEMPO_URL}/accounts/${account}/links" |
+    jq '.results[].scope.self' | 
+    sed 's#^.*/\([^/]*\)"$#\1#'
+}
+
+function getIssues() {
+  projectIds=$(echo -n "$1" | tr '\n' ',')
+  curl -s\
+    -u "patrick.louis@linked-planet.com:$(pass pass-store/accounts/work/atlassian-token)" \
+    "${JIRA_URL}/search?maxResults=850&fields=key,summary&jql=project%20IN%20%28${projectIds}%29%20AND%20issuetype=Task%20AND%20statusCategory%20NOT%20IN%20%28Done%29" |
+    jq ".issues | map({key: .key, summary: .fields.summary})" 
+}
+
+function getIssueId() {
+  issueKey=$1
+  curl -s\
+    -u "patrick.louis@linked-planet.com:$(pass pass-store/accounts/work/atlassian-token)" \
+    "${JIRA_URL}/search?jql=key%20=%20%22${issueKey}%22" |
+    jq ".issues[0].id" | sed 's/"//g'
+}
+
+function createWorklog() {
+  account=$1
+  issueId=$2
+  startDate=$3
+  duration=$4
+  description=$5
+  curl -s\
+    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d "{
+    \"authorAccountId\": \"$(pass pass-store/accounts/work/tempo-account-id)\",
+    \"issueId\": ${issueId},
+    \"attributes\": [
+      {\"key\": \"_ProductAccount_\", \"value\": \"${account}\"}
+    ],
+    \"startDate\": \"${startDate}\",
+    \"timeSpentSeconds\": ${duration},
+    \"description\": \"${description}\" 
+    }" \
+    "${TEMPO_URL}/worklogs" 
+}
+
+if [ ! -f "$dataDir/accounts" ]; then
+  getAccounts > "$dataDir/accounts"
+fi
+
+accountList=$(cat "$dataDir/accounts")
+
+account=$(echo -n "$accountList" | jq '.[].name' | sed 's/"//g' | dmenu -i -l 20 -p "Select Account")
+if [ -z "$account" ]; then
+  exit 1
+fi
+accountKey=$(echo -n "$accountList" | jq ".[] | select(.name==\"$account\") | .key" | sed 's/"//g')
+
+if [ ! -f "$dataDir/${accountKey}.link" ]; then
+  getAccountLinks "$accountKey" > "$dataDir/${accountKey}.link"
+fi
+projects=$(cat "$dataDir/${accountKey}.link")
+issueList=$(getIssues "${projects}")
+
+issueSummary=$(echo -n "$issueList" | jq '.[].summary' | sed 's/"//g' | dmenu -i -l 20 -p "Choose Issue")
+if [ -z "$issueSummary" ]; then
+  exit 1
+fi
+issueKey=$(echo -n "$issueList" | jq ".[] | select(.summary==\"$issueSummary\") | .key" | sed 's/"//g')
+echo $issueKey
+issueId=$(getIssueId "$issueKey")
+echo $issueId
+startDate=$(date +"%Y-%m-%d" | dmenu -p 'Enter Start Date: ')
+if [ -z "$startDate" ]; then
+  exit 1
+fi
+duration=$(echo '' | dmenu -p 'Enter Duration [h]: ')
+if [ -z "$duration" ]; then
+  exit 1
+fi
+durationSec=$(($duration * 3600))
+description=$(echo '' | dmenu -p 'Enter Description: ')
+createWorklog "$accountKey" "$issueId" "$startDate" "$durationSec" "$description"
+

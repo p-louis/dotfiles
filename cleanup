@@ -1,0 +1,21 @@
+#!/bin/sh
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="nvim,tools,shell,xconfig,scripts"
+fi
+
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles/master
+fi
+
+STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES 
+
+
+pushd $DOTFILES
+for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
+do
+    echo "stow -t $HOME -D $folder"
+    stow -t $HOME -D $folder
+done
+popd
+
+

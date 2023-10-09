@@ -1,0 +1,33 @@
+[user]
+	signingkey = 63435FF202AD8B94
+	name = Patrick Louis
+	email = patrick.louis@link-time.com
+[alias]
+	c = commit -S
+	co = checkout
+	pu = pull
+	p = push
+	st = status
+	a = add .
+[pull]
+	rebase = false
+[gpg]
+	program = gpg2
+[url "git@salsa.debian.org:installer-team/"]
+	pushInsteadOf = https://salsa.debian.org/installer-team/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[diff]
+  tool = nvim 
+[merge]
+  tool = nvim
+[mergetool]
+  prompt = false
+[init]
+	defaultBranch = master

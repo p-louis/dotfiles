@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+msmtpd --command='msmtp --read-envelope-from -t --file /home/plouis/.config/msmtp/config' --log=syslog --port=2500

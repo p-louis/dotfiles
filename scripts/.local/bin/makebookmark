@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+bookmark=$(xclip -o)
+file="/home/plouis/.local/share/bookmarks/bookmarks"
+
+
+if grep -q "^$bookmark$" "$file"; then
+  notify-send "Already exists!"
+else
+  echo "$bookmark" >> "$file"
+  notify-send "Bookmark Added -> $bookmark"
+fi

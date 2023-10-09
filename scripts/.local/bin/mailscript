@@ -1,0 +1,22 @@
+#!/bin/sh
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_RUNTIME_DIR="$HOME/.local/runtime"
+export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
+
+cd $XDG_DATA_HOME/mail
+
+gmi sync
+notmuch new
+afew --tag --new
+
+vdirsyncer sync
+
+unread=$(notmuch search tag:unread | wc -l)
+
+if [ $unread -gt 0 ]; then
+  notify-send "You have $unread unread mails"
+fi

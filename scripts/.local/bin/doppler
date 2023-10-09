@@ -1,0 +1,2 @@
+#!/bin/sh
+mpv --stream-lavf-o=seekable=0 --loop-file=inf "https://www.dwd.de/DWD/wetter/radar/radfilm_bay_akt.gif"

@@ -1,0 +1,12 @@
+#!/bin/bash
+touch ~/.local/share/gnupg/sc-toggle-status
+SC=$(cat ~/.local/share/gnupg/sc-toggle-status)
+if [ "$SC" == "card1" ]; then
+  echo "card2" > ~/.local/share/gnupg/sc-toggle-status
+  find ~/.local/share/gnupg/private-keys-v1.d -name "*.card2" | while read f; do cp "$f" "${f%.card2}"; done
+  echo "Switching to SmartCard 2"
+else
+  echo "card1" > ~/.local/share/gnupg/sc-toggle-status
+  find ~/.local/share/gnupg/private-keys-v1.d -name "*.card1" | while read f; do cp "$f" "${f%.card1}"; done
+  echo "Switching to SmartCard 1"
+fi

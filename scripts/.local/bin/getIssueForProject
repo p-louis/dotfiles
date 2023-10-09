@@ -1,0 +1,57 @@
+#!/bin/sh
+
+
+project=$1
+tag=$2
+startDate=$3
+duration=$4
+description=$5
+
+TEMPO_URL="https://api.tempo.io/4"
+JIRA_URL="https://link-time.atlassian.net/rest/api/2"
+
+function getAccountLinks() {
+  account=$1
+  curl -s\
+    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    "${TEMPO_URL}/accounts/${account}/links" |
+    jq '.results[0].scope.self'
+}
+
+function createWorklog() {
+  account=$1
+  issueId=$2
+  curl -v\
+    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d "{
+    \"authorAccountId\": \"$(pass pass-store/accounts/work/tempo-account-id)\",
+    \"issueId\": ${issueId},
+    \"attributes\": [
+      {\"key\": \"_ProductAccount_\", \"value\": \"${tag}\"}
+    ],
+    \"startDate\": \"${startDate}\",
+    \"timeSpentSeconds\": ${duration},
+    \"description\": \"${description}\" 
+    }" \
+    "${TEMPO_URL}/worklogs" 
+}
+
+function getIssueId() {
+  projectId=$1
+  issueKey=$2
+  curl -s\
+    -u "patrick.louis@linked-planet.com:$(pass pass-store/accounts/work/atlassian-token)" \
+    "${JIRA_URL}/search?jql=project=${projectId}%20AND%20statusCategory=%22In%20Progress%22" |
+      jq ".issues[] | select(.key==\"${issueKey}\") | .id" | sed 's/"//g'
+}
+
+projectId=$(getAccountLinks ${tag} | sed 's#^.*/\([^/]*\)"$#\1#')
+echo "Got ProjectId $projectId"
+issueId=$(getIssueId ${projectId} ${project})
+echo "Got IssueId ${issueId}"
+
+createWorklog $projectId $issueId
+
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+text="$(cat /dev/stdin)"
+
+websearch() { "$BROWSER" "https://duckduckgo.com/?q=$@" ;}
+wikipedia() { "$BROWSER" "https://en.wikipedia.org/wiki/$@" ;}
+maps()      { "$BROWSER" "https://openstreetmap.org/search?query=$@" ;}
+echo "$text" | grep "^https://.*\.[A-Za-z]\+.*\.xml$" > /dev/null && addrss() { rssadd "$@" ;}
+echo "$text" | grep "^.*\.[A-Za-z]\+.*$" > /dev/null && gotourl() { "$BROWSER" "$@" ;}
+echo "$text" | grep "^.*@.*\.[A-Za-z]\+$" > /dev/null && email() { xdg-email "$@" ;}
+
+func="$(declare -F | awk '{print $3}' | dmenu -p "Plumb $text to: " -i -l 15)"
+[ -z "$func" ] || "$func" "$text"
+

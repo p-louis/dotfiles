@@ -1,0 +1,5 @@
+#!/bin/sh
+
+password=$(pass pass-store/accounts/work/mk-group-rdp)
+
+xfreerdp /size:1280x960 /u:patrick.louis@mk-group.de /p:$password /v:terminal.mk-group.com:4154
