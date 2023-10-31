@@ -194,3 +194,4 @@ if [[ -z $WSL ]]; then
 fi
 
 source $HOME/.config/shell/functions
+#eval "$(starship init zsh)"

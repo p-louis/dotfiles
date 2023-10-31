@@ -1,0 +1,97 @@
+ls
+lsd
+lsd -l
+ls
+cargo install starship
+khal interactive
+ls
+sc
+exit
+http get cht.sh/git
+http get https://cht.sh/git
+exit
+..
+cd
+cf
+cd .config/
+ls
+cd nushell/
+ls
+vim env.nu
+vim config.nu
+ls
+exit
+lsd
+ls
+10 / "bob"
+10 / 20
+curl cht.sh/git
+curl cht.sh/git | bat
+(http get https://api.chucknorris.io/jokes/random).value
+cd .config
+ls
+ls -lrt
+ls -lt
+ls -l
+ls
+cd shell/.config/nushell/
+ls
+vim env.nu
+config nu
+config env
+$env
+$env | bas
+$env | bat
+$env
+exit
+$env
+exit
+nu
+$env
+exit
+$env
+exit
+$env
+["a" "b" "c"] | join
+["a" "b" "c"] | str join ":"
+$env.LF_ICONS=(["di=📁" "fi=📃" "tw=🤝" "ow=📂" "ln=⛓" "or=❌" "ex=🎯" "*.txt=✍" "*.mom=✍" "*.me=✍" "*.ms=✍" "*.png=🖼" "*.webp=🖼" "*.ico=🖼" "*.jpg=📸" "*.jpe=📸" "*.jpeg=📸" "*.gif=🖼" "*.svg=🗺" "*.tif=🖼" "*.tiff=🖼" "*.xcf=🖌" "*.html=🌎" "*.xml=📰" "*.gpg=🔒" "*.css=🎨" "*.pdf=📚" "*.djvu=📚" "*.epub=📚" "*.csv=📓" "*.xlsx=📓" "*.tex=📜" "*.md=📘" "*.r=📊" "*.R=📊" "*.rmd=📊" "*.Rmd=📊" "*.m=📊" "*.mp3=🎵" "*.opus=🎵" "*.ogg=🎵" "*.m4a=🎵" "*.flac=🎼" "*.wav=🎼" "*.mkv=🎥" "*.mp4=🎥" "*.webm=🎥" "*.mpeg=🎥" "*.avi=🎥" "*.mov=🎥" "*.mpg=🎥" "*.wmv=🎥" "*.m4b=🎥" "*.flv=🎥" "*.zip=📦" "*.rar=📦" "*.7z=📦" "*.tar.gz=📦" "*.z64=🎮" "*.v64=🎮" "*.n64=🎮" "*.gba=🎮" "*.nes=🎮" "*.gdi=🎮" "*.1=ℹ" "*.nfo=ℹ" "*.info=ℹ" "*.log=📙" "*.iso=📀" "*.img=📀" "*.bib=🎓" "*.ged=👪" "*.part=💔" "*.torrent=🔽" "*.jar=♨" "*.java=♨" ] | str join ":")
+["di=📁" "fi=📃" "tw=🤝" "ow=📂" "ln=⛓" "or=❌" "ex=🎯" "*.txt=✍" "*.mom=✍" "*.me=✍" "*.ms=✍" "*.png=🖼" "*.webp=🖼" "*.ico=🖼" "*.jpg=📸" "*.jpe=📸" "*.jpeg=📸" "*.gif=🖼" "*.svg=🗺" "*.tif=🖼" "*.tiff=🖼" "*.xcf=🖌" "*.html=🌎" "*.xml=📰" "*.gpg=🔒" "*.css=🎨" "*.pdf=📚" "*.djvu=📚" "*.epub=📚" "*.csv=📓" "*.xlsx=📓" "*.tex=📜" "*.md=📘" "*.r=📊" "*.R=📊" "*.rmd=📊" "*.Rmd=📊" "*.m=📊" "*.mp3=🎵" "*.opus=🎵" "*.ogg=🎵" "*.m4a=🎵" "*.flac=🎼" "*.wav=🎼" "*.mkv=🎥" "*.mp4=🎥" "*.webm=🎥" "*.mpeg=🎥" "*.avi=🎥" "*.mov=🎥" "*.mpg=🎥" "*.wmv=🎥" "*.m4b=🎥" "*.flv=🎥" "*.zip=📦" "*.rar=📦" "*.7z=📦" "*.tar.gz=📦" "*.z64=🎮" "*.v64=🎮" "*.n64=🎮" "*.gba=🎮" "*.nes=🎮" "*.gdi=🎮" "*.1=ℹ" "*.nfo=ℹ" "*.info=ℹ" "*.log=📙" "*.iso=📀" "*.img=📀" "*.bib=🎓" "*.ged=👪" "*.part=💔" "*.torrent=🔽" "*.jar=♨" "*.java=♨" ] | str join ":"
+$env.LF_ICONS = (["di=📁" "fi=📃" "tw=🤝" "ow=📂" "ln=⛓" "or=❌" "ex=🎯" "*.txt=✍" "*.mom=✍" "*.me=✍" "*.ms=✍" "*.png=🖼" "*.webp=🖼" "*.ico=🖼" "*.jpg=📸" "*.jpe=📸" "*.jpeg=📸" "*.gif=🖼" "*.svg=🗺" "*.tif=🖼" "*.tiff=🖼" "*.xcf=🖌" "*.html=🌎" "*.xml=📰" "*.gpg=🔒" "*.css=🎨" "*.pdf=📚" "*.djvu=📚" "*.epub=📚" "*.csv=📓" "*.xlsx=📓" "*.tex=📜" "*.md=📘" "*.r=📊" "*.R=📊" "*.rmd=📊" "*.Rmd=📊" "*.m=📊" "*.mp3=🎵" "*.opus=🎵" "*.ogg=🎵" "*.m4a=🎵" "*.flac=🎼" "*.wav=🎼" "*.mkv=🎥" "*.mp4=🎥" "*.webm=🎥" "*.mpeg=🎥" "*.avi=🎥" "*.mov=🎥" "*.mpg=🎥" "*.wmv=🎥" "*.m4b=🎥" "*.flv=🎥" "*.zip=📦" "*.rar=📦" "*.7z=📦" "*.tar.gz=📦" "*.z64=🎮" "*.v64=🎮" "*.n64=🎮" "*.gba=🎮" "*.nes=🎮" "*.gdi=🎮" "*.1=ℹ" "*.nfo=ℹ" "*.info=ℹ" "*.log=📙" "*.iso=📀" "*.img=📀" "*.bib=🎓" "*.ged=👪" "*.part=💔" "*.torrent=🔽" "*.jar=♨" "*.java=♨" ] | str join ":")<\n>
+$env.LF_ICONS
+docker ps
+docker ps | lines
+docker ps | lines | split column "\t"
+docker ps | lines | split column "\t" ContainerId Image Command Created Status Ports Names
+docker ps
+docker ps | jc
+docker ps | lines | split column "  " ContainerId Image Command Created Status Ports Names
+docker ps | lines | split column "  " 'Container Id' Image Command Created Status Ports Names
+cd .config/nushell/
+git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD -n 5 | lines | split column "»¦«" commit subject name email date
+source shortcutrc
+scope aliases
+exit
+ls
+cf
+ls
+exit
+cf
+ls
+ls -a
+ls
+ls -d
+ls | where type=dir
+ls | where type==dir
+ls | where type = dir
+ls | where type == dir
+ls | where type == dir | sort modified
+ls | where type == dir | sort 
+help sort
+ls | where type == dir | table  
+help table
+exit
+$"($tty)"
+exit
+$env | get tty
+$env | get -i tty
+exit

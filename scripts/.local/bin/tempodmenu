@@ -13,7 +13,6 @@ fi
 function is_int()  { case ${1#[-+]} in '' | *[!0-9]*              ) return 1;; esac ;}
 
 function getAccounts() {
-  account=$1
   curl -s\
     -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
     "${TEMPO_URL}/accounts" |
