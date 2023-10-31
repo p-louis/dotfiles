@@ -95,3 +95,18 @@ exit
 $env | get tty
 $env | get -i tty
 exit
+ls
+clear
+ls
+cd .dotfiles/
+ls
+cd master/
+ls
+exit
+ls
+vim history.txt
+vim .gitignore
+ls
+git st
+git rm history.txt
+git st
