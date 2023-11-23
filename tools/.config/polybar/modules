@@ -1,0 +1,231 @@
+;=========================================================================
+;
+; __       __   ______   _______   __    __  __        ________   ______  
+;|  \     /  \ /      \ |       \ |  \  |  \|  \      |        \ /      \ 
+;| $$\   /  $$|  $$$$$$\| $$$$$$$\| $$  | $$| $$      | $$$$$$$$|  $$$$$$\
+;| $$$\ /  $$$| $$  | $$| $$  | $$| $$  | $$| $$      | $$__    | $$___\$$
+;| $$$$\  $$$$| $$  | $$| $$  | $$| $$  | $$| $$      | $$  \    \$$    \ 
+;| $$\$$ $$ $$| $$  | $$| $$  | $$| $$  | $$| $$      | $$$$$    _\$$$$$$\
+;| $$ \$$$| $$| $$__/ $$| $$__/ $$| $$__/ $$| $$_____ | $$_____ |  \__| $$
+;| $$  \$ | $$ \$$    $$| $$    $$ \$$    $$| $$     \| $$     \ \$$    $$
+; \$$      \$$  \$$$$$$  \$$$$$$$   \$$$$$$  \$$$$$$$$ \$$$$$$$$  \$$$$$$ 
+;                                                                         
+;                                                                        
+;=========================================================================
+[module/title]
+type = internal/xwindow
+format-padding = 2
+format-background = ${color.bg}
+format-foreground = ${color.fg}
+format = <label>
+;format-foreground = ${color.black}
+label = %title%
+label-maxlen = 40
+radius = 8
+
+[module/arch]
+type = custom/text
+content = 
+;alt icons = 
+content-padding = 2
+content-background = ${color.shade1}
+content-foreground = ${color.fg}
+click-left = ~/.config/polybar/scripts/launch.sh
+
+[module/workspaces]
+type = internal/dwm
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+format-padding = 1
+
+enable-tags-click = true
+enable-tags-scroll = true
+tags-scroll-empty = false
+tags-scroll-reverse = false
+tags-scroll-wrap = true
+enable-layout-click = true
+enable-layout-scroll = true
+layout-scroll-wrap = true
+layout-scroll-reverse = true
+
+secondary-layout-symbol = [M]
+
+label-floating = F
+
+format = <label-tags> <label-layout> <label-floating> 
+
+label-layout = %symbol%
+label-layout-padding = 1
+
+format-background = ${color.shade2}
+label-focused = 
+label-unfocused = 
+label-visible = 
+label-urgent = 
+label-empty = 
+
+label-empty-padding = 1
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-visible-padding = 1
+
+label-empty-foreground = ${color.fg}
+label-focused-foreground = ${color.curgent}
+label-unfocused-foreground = ${color.acolor}
+label-visible-foreground = ${color.fg}
+
+[module/ssh]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${color.shade3}
+content-foreground = ${color.fg}
+click-left = ~/.config/polybar/scripts/ssh.sh
+
+[module/nginx]
+type = custom/script
+exec = ~/.config/polybar/scripts/nginx-status.sh
+format-background = ${color.shade4}
+format-padding = 2
+tail = true
+click-left = ~/.config/polybar/scripts/start-nginx.sh
+
+[module/github]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${color.shade4}
+content-foreground = ${color.fg}
+click-left = xdg-open https://www.github.com/ 
+
+;==========================================================
+
+[module/mpd]
+type = internal/mpd
+format-online = <toggle> <label-song> 
+;format-online =  <label-song> 
+;alt icons =   
+format-online-foreground = ${color.fg}
+format-online-background = ${color.shade7}
+format-online-padding = 2
+
+icon-play = 喇
+icon-pause = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+;==========================================================
+
+[module/pkg]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates.sh
+format-background = ${color.shade6}
+format-padding = 2
+tail = true
+
+[module/volume]
+type = internal/alsa
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
+format-volume-background = ${color.shade5}
+label-volume = %percentage%%
+label-muted = "婢"
+label-muted-background = ${color.shade5}
+label-muted-padding = 2
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奄
+ramp-volume-2 = 奔
+ramp-volume-3 = 奔
+ramp-volume-4 = 墳
+ramp-volume-5 = 墳
+ramp-volume-6 = 墳
+
+[module/battery]
+type = internal/battery
+full-at = 99
+time-format = %H:%M
+battery = BAT0
+adapter = ADP1
+format-charging = <animation-charging> <label-charging>
+format-charging-background = ${color.shade4}
+format-charging-padding = 2
+label-charging = %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${color.shade4}
+format-discharging-padding = 2
+label-discharging = %percentage%%
+format-full = <label-full>
+format-full-background = ${color.shade4}
+format-full-padding = 2
+
+format-full-prefix = " "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+
+ramp-capacity-0-foreground = ${color.red}
+ramp-capacity-1-foreground = ${color.red}
+ramp-capacity-foreground   = ${color.fg}
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
+
+animation-charging-framerate = 750
+
+[module/network]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-network
+format-background = ${color.shade3}
+format-padding = 2
+click-left = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
+tail = true
+
+[module/date]
+type = internal/date
+interval = 30
+label =  %time%
+label-padding = 2
+label-background = ${color.shade2}
+time =  %I:%M %p
+time-alt =  %Y-%m-%d
+
+[module/powermenu]
+type = custom/text
+content = 襤
+content-padding = 2
+content-background = ${color.shade1}
+content-foreground = ${color.fg}
+click-left = ~/.config/polybar/scripts/powermenu
+click-right = ~/.config/polybar/scripts/powermenu-alt
+
+
+;==============================
+;
+; ________   ______   ________ 
+;|        \ /      \ |        \
+;| $$$$$$$$|  $$$$$$\| $$$$$$$$
+;| $$__    | $$  | $$| $$__    
+;| $$  \   | $$  | $$| $$  \   
+;| $$$$$   | $$  | $$| $$$$$   
+;| $$_____ | $$__/ $$| $$      
+;| $$     \ \$$    $$| $$      
+; \$$$$$$$$  \$$$$$$  \$$      
+;
+; vim:ft=dosini

@@ -3,8 +3,10 @@ dateNow="$(date +'%H:%M')"
 dateFourMins="$(date +'%H:%M' -d +4mins57secs)"
 dateFiveMins="$(date +'%H:%M' -d +5mins)"
 calendarName="chiispr5e9mm2rh3d1nmoqb4c5sk0pridtqn0bjm5phm2r35dpi62shectnmuprcckn66rrd@virtual"
-nextTenMinutes="$(khal list -d $calendarName --notstarted --format '{start-time} * {title}' $dateNow 15m)"
-nextFiveMinutes="$(khal list -d $calendarName --notstarted --format '{title}\n{location}\n{url}' $dateFourMins $dateFiveMins)"
+calendarName2="link-time.com_9ldnvdtdphimf4e7el121ulqdk@group.calendar.google.com"
+
+nextTenMinutes="$(khal list -d $calendarName -d $calendarName2 --notstarted --format '{start-time} * {title}' $dateNow 15m)"
+nextFiveMinutes="$(khal list -d $calendarName -d $calendarName2 --notstarted --format '{title}\n{location}\n{url}' $dateFourMins $dateFiveMins)"
 if [[ -z $nextTenMinutes ]]; then
     echo "               #[fg=colour252,bold]  "
 else

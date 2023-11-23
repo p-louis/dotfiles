@@ -745,3 +745,5 @@ if ($env | get -i tty) == "/dev/tty1" {
     ! pidof -s Xorg out+err> /dev/null
     startx $"($env.XDG_CONFIG_HOME)/x11/xinitrc"
 }
+
+alias vim = nvim
