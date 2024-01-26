@@ -51,7 +51,7 @@ alias \
 alias \
   doxistunnel="ssh -L 8080:172.16.1.141:8080 aws-mk-jump-host-prod" \
   smtptunnel="ssh -L 5000:localhost:5000 aws-mk-smtp-host" \
-  zitisvpn="sudo openvpn --daemon --config /etc/openvpn/client/openvpn-iq.ovpn" \
+  zitisvpn="nmcli c up 6dc472f5-882b-41b6-888a-d2245bc25b92 passwd-file ~/.ssh/secrets-file" \
   sa="ssh-add ~/.ssh/id_ed25519"
 
 alias \
@@ -59,3 +59,8 @@ alias \
   wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\"" \
   abook="abook --config \"$XDG_CONFIG_HOME\"/abook/abookrc --datafile \"$XDG_DATA_HOME\"/abook/addressbook" \
   khal="khal --color"
+
+alias \
+    ls="exa --color=auto" \
+    ll="exa -lah" \
+    tree="exa --tree"

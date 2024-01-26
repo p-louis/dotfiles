@@ -13,7 +13,7 @@ gmi sync
 notmuch new
 afew --tag --new
 
-vdirsyncer sync
+vdirsyncer sync 
 
 unread=$(notmuch search tag:unread | wc -l)
 

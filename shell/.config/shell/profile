@@ -183,7 +183,8 @@ if [[ -z $WSL ]]; then
 		# Start graphical server on user's current tty if not already running.
 		if [ "$(tty)" = "/dev/tty1" ]; then
 		       ! pidof -s Xorg >/dev/null 2>&1 
-		       startx "$XDG_CONFIG_HOME/x11/xinitrc"
+		       #startx "$XDG_CONFIG_HOME/x11/xinitrc"
+               #Hyprland
 		fi
 	else
 		echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.

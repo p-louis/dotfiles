@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 TEMPO_URL="https://api.tempo.io/4"
