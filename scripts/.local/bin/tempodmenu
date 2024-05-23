@@ -14,7 +14,7 @@ function is_int()  { case ${1#[-+]} in '' | *[!0-9]*              ) return 1;; e
 
 function getAccounts() {
   curl -s\
-    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    -H "Authorization: Bearer $(pass private/accounts/work/tempo-token)" \
     "${TEMPO_URL}/accounts" |
     jq '.results | map({key,name})'
 }
@@ -22,7 +22,7 @@ function getAccounts() {
 function getAccountLinks() {
   account=$1
   curl -s\
-    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    -H "Authorization: Bearer $(pass private/accounts/work/tempo-token)" \
     "${TEMPO_URL}/accounts/${account}/links" |
     jq '.results[].scope.self' | 
     sed 's#^.*/\([^/]*\)"$#\1#'
@@ -31,7 +31,7 @@ function getAccountLinks() {
 function getIssues() {
   projectIds=$(echo -n "$1" | tr '\n' ',')
   curl -s\
-    -u "patrick.louis@linked-planet.com:$(pass pass-store/accounts/work/atlassian-token)" \
+    -u "patrick.louis@linked-planet.com:$(pass private/accounts/work/atlassian-token)" \
     "${JIRA_URL}/search?maxResults=850&fields=key,summary&jql=project%20IN%20%28${projectIds}%29%20AND%20issuetype=Task%20AND%20statusCategory%20NOT%20IN%20%28Done%29" |
     jq ".issues | map({key: .key, summary: .fields.summary})" 
 }
@@ -39,7 +39,7 @@ function getIssues() {
 function getIssueId() {
   issueKey=$1
   curl -s\
-    -u "patrick.louis@linked-planet.com:$(pass pass-store/accounts/work/atlassian-token)" \
+    -u "patrick.louis@linked-planet.com:$(pass private/accounts/work/atlassian-token)" \
     "${JIRA_URL}/search?jql=key%20=%20%22${issueKey}%22" |
     jq ".issues[0].id" | sed 's/"//g'
 }
@@ -51,11 +51,11 @@ function createWorklog() {
   duration=$4
   description=$5
   curl -s\
-    -H "Authorization: Bearer $(pass pass-store/accounts/work/tempo-token)" \
+    -H "Authorization: Bearer $(pass private/accounts/work/tempo-token)" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d "{
-    \"authorAccountId\": \"$(pass pass-store/accounts/work/tempo-account-id)\",
+    \"authorAccountId\": \"$(pass private/accounts/work/tempo-account-id)\",
     \"issueId\": ${issueId},
     \"attributes\": [
       {\"key\": \"_ProductAccount_\", \"value\": \"${account}\"}

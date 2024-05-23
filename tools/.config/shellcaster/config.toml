@@ -14,7 +14,7 @@ download_path = "~/.local/share/shellcaster/"
 # will be entered to the command.
 # Default: vlc %s
 
-play_command = "tmux split-window -p 20 -fv mpv %s --no-video"
+play_command = "tmux split-window -l 20% -fv mpv %s --no-video"
 
 
 # Configures what happens when new episodes are found as podcasts are
