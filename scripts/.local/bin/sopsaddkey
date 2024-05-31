@@ -1,0 +1,9 @@
+#!/bin/bash
+
+keyType=$1
+key=$2
+file=$3
+
+path=$(pwd)
+
+sops -r -add-${keyType} ${key} ${file} 2>&1 > /tmp/tmp-${key} && mv "/tmp/tmp-${key}" "$pwd/$file"
