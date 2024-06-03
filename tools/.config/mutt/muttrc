@@ -1,0 +1,191 @@
+set nm_default_url = "notmuch://$HOME/.local/share/mail" 
+set virtual_spoolfile = yes
+
+virtual-mailboxes \
+    "INBOX" "notmuch://?query=(tag:inbox OR tag:sent) AND NOT tag:killed AND NOT tag:junk" \
+    "Unread" "notmuch://?query=tag:unread" \
+    "Starred" "notmuch://?query=tag:*" \
+    "Sent" "notmuch://?query=tag:sent"
+    
+set sidebar_width = 20
+set sidebar_visible = yes               # set to "no" to disable sidebar view at startup
+color sidebar_new yellow default
+# sidebar bindings
+bind index <left> sidebar-prev          # got to previous folder in sidebar
+bind index <right> sidebar-next         # got to next folder in sidebar
+bind index <space> sidebar-open         # open selected folder from sidebar
+# sidebar toggle
+macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
+macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
+macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar
+
+set header_cache = ${XDG_DATA_HOME}/mutt/cache/headers
+set message_cachedir = ${XDG_DATA_HOME}/mutt/cache/bodies
+set certificate_file = ${XDG_DATA_HOME}/mutt/certificates
+
+set move = no
+# set mbox_type=Maildir
+set folder=${XDG_DATA_HOME}/mail/
+set realname = "Patrick Louis"
+set from = "patrick.louis@linked-planet.com"
+set sendmail = "gmi send -t -C /home/plouis/.local/share/mail/"
+
+set mime_type_query_command = "file --mime-type -b %s"
+
+set signature = "/home/plouis/.config/mutt/signature"
+set sig_on_top = yes
+
+set spoolfile = ""
+
+set sort_aux = 'reverse-last-date-received'
+set sort = 'threads'
+set date_format="%y/%m/%d %I:%M%p"
+#set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set mailcap_path = ${XDG_CONFIG_HOME}/mutt/mailcap:/usr/local/share/mutt-wizard/mailcap:$mailcap_path
+
+tag-transforms "inbox" "" \
+               "unread"  "" \
+               "replied" "" \
+               "sent"    "" \
+               "signed"  "" \
+               "todo"    "" \
+               "deleted" "" \
+               "*"       "" \
+               "attachment" "" \
+               "important" ""
+
+index-format-hook  iconflag  "~P"    "📤"
+index-format-hook  iconflag  "~U"    "📫"
+index-format-hook  iconflag  "~R"    "✉"
+
+set index_format='%4C|%<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]>| %-35.35F%< M?(%3g )&      > %@iconflag@ %?GR?%GR&　? %?GA?%GA&　? %?GD?%GD&%GC?  %s'
+
+set sleep_time = 0    # Pause 0 seconds for informational messages
+set markers = no    # Disables the `+` displayed at line wraps
+set mark_old = no   # Unread mail stay unread until read
+set mime_forward = yes    # attachments are forwarded with mail
+set wait_key = no   # mutt won't ask "press key to continue"
+set fast_reply      # skip to compose when replying
+set fcc_attach      # save attachments with the body
+set forward_format = "Fwd: %s"  # format of subject when forwarding
+set forward_quote   # include message in forwards
+set reverse_name    # reply as whomever it was to
+set include     # include message in replies
+
+set editor="nvim +'set spell spelllang=en_us,de_de' +/^$/"
+set query_command= "khard email --parsable --search-in-source-files %s"
+
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/plain text/enriched text/html
+
+#SMIME
+set smime_is_default="no"
+set crypt_autosmime="no"
+set pgp_autosign="no"
+set smime_timeout="300"
+set crypt_autosign="yes"
+set crypt_replyencrypt="yes"
+set crypt_replysign="yes"
+set crypt_replysignencrypted="yes"
+set crypt_verify_sig="yes"
+set smime_default_key="12345678.0" # you should have already changed this
+# GPG
+set pgp_use_gpg_agent = yes
+set pgp_timeout       = 3600
+set pgp_autosign      = yes
+set pgp_sign_as       = "361908F97DD5E21D"
+set pgp_default_key   = "361908F97DD5E21D"
+set crypt_autosign    = no
+unset smime_is_default
+
+
+# Colors
+color normal white default
+color hdrdefault cyan default
+color attachment yellow default
+
+color header brightyellow default "From: "
+color header brightyellow default "Subject: "
+color header brightyellow default "Date: "
+color header brightgreen  default "^(from|subject):"
+
+color quoted green default
+color quoted1 cyan default
+color quoted2 green default
+color quoted3 cyan default
+
+color error red default # error messages
+color message white default # message  informational messages
+color indicator black yellow # indicator for the "current message"
+color status white blue # status lines in the folder index sed for the mini-help line
+color tree  red default # the "tree" display of threads within the folder index
+color search white blue            # search matches found with search within the internal pager
+color markers red default         # The markers indicate a wrapped line hen showing messages with looong lines
+color status black blue
+color hdrdefault blue white
+
+uncolor index *
+color index      white         default  ~Q # Beantwortete Nachrichten
+color index      brightred     default  ~F # Markierte Nachrichten
+color index      yellow        default  ~N # Neue Nachrichten
+color index      green         default  ~O # Ungelesene Nachrichten
+color index      magenta       default  ~T # Getaggte Nachrichten
+color index      black         default  ~D # Gelöschte Nachrichten
+
+macro index A "<modify-labels>+archive -unread -inbox<enter>"        # tag as Archived
+macro index I "<modify-labels>-inbox -unread<enter>"                 # removed from inbox
+macro index S "<modify-labels-then-hide>-inbox -unread +junk<enter>" # tag as Junk mail
+macro index + "<modify-labels>+*<enter><sync-mailbox>"               # tag as starred
+macro index - "<modify-labels>-*<enter><sync-mailbox>"               # tag as unstarred
+macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+macro index // "<vfolder-from-query>" "Search via notmuch"
+
+bind index,pager i noop
+bind index,pager g noop
+bind index \Cf noop
+bind index,pager M noop
+bind index,pager C noop
+
+bind index,pager \` modify-labels
+
+# General rebindings
+bind index gg first-entry
+bind index j next-entry
+bind index k previous-entry
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+# bind editor <space> noop
+bind index G last-entry
+bind index gg first-entry
+bind pager,attach h exit
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+bind index D delete-message
+bind index U undelete-message
+bind index L limit
+bind index h noop
+bind index l display-message
+# bind index,query <space> tag-entry
+bind browser h goto-parent
+macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
+bind index,pager H view-raw-message
+bind browser l select-entry
+bind browser gg top-page
+bind browser G bottom-page
+bind pager gg top
+bind pager G bottom
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+bind index,pager S sync-mailbox
+bind index,pager R group-reply
+bind index \031 previous-undeleted # Mouse wheel
+bind index \005 next-undeleted   # Mouse wheel
+bind pager \031 previous-line    # Mouse wheel
+bind pager \005 next-line    # Mouse wheel
+bind editor ^T complete-query
+bind editor <Tab> complete-query
+
+macro pager \Cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro index,pager E "<pipe-message>khard add-email<return>" "add to adressbook"

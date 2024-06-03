@@ -1,0 +1,10 @@
+text/plain; $EDITOR %s ;
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1024 %s; nametemplate=%s.html; copiousoutput;
+text/calendar; mutt-ical.py -i -e "patrick.louis@linked-planet.com" %s && khal import %s; compose=nvim %s;
+application/ics; mutt-ical.py -i -e "patrick.louis@linked-planet.com" %s && khal import %s; compose=nvim %s;
+image/*; sxiv %s ;
+video/*; setsid mpv --quiet %s &; copiousoutput
+audio/*; mpv %s ;
+application/pgp-encrypted; gpg -d '%s'; copiousoutput;
+application/pgp-keys; gpg --import '%s'; copiousoutput;
+
