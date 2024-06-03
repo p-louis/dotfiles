@@ -2,7 +2,7 @@
 size = 10.0
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Bold"
 
 [font.glyph_offset]
@@ -10,11 +10,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Medium Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Medium"
 
 [font.offset]

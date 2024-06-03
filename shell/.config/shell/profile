@@ -4,7 +4,7 @@
 
 # If you don't plan on reverting to bash, you can remove the link in ~/.profile
 # to clean up.
-source "$HOME/.local/share/cargo/env"
+#source "$HOME/.local/share/cargo/env"
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/.local/bin/ -type d -printf %p:)%%:}"
@@ -177,22 +177,6 @@ ex=🎯:\
 # Run xorg-pre-hook for prime switcher
 # sudo /usr/bin/prime-switch nvidia
 source $HOME/.config/shell/private-profile
-
-if [[ -z $WSL ]]; then
-	if pacman -Qs libxft-bgra >/dev/null 2>&1; then
-		# Start graphical server on user's current tty if not already running.
-		if [ "$(tty)" = "/dev/tty1" ]; then
-		       ! pidof -s Xorg >/dev/null 2>&1 
-		       startx "$XDG_CONFIG_HOME/x11/xinitrc"
-               #Hyprland
-		fi
-	else
-		echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
-	Please run:
-		\033[32myay -S libxft-bgra-git\033[0m
-	and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
-	fi
-fi
 
 source $HOME/.config/shell/functions
 #eval "$(starship init zsh)"
