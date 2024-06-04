@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "[+] Install/upgrade SOPS"
+SOPS_VERSION=$(curl -s "https://api.github.com/repositories/40684033/releases/latest" | jq .tag_name | tr -d '"')
+sudo dnf install -y "https://github.com/getsops/sops/releases/download/${SOPS_VERSION}/sops-${SOPS_VERSION}.x86_64.rpm"
+sops --version
