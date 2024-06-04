@@ -51,6 +51,7 @@ tag-transforms "inbox" "" \
                "todo"    "" \
                "deleted" "" \
                "*"       "" \
+               "invitation" "" \
                "attachment" "" \
                "important" ""
 
