@@ -5,10 +5,10 @@ title = Dunst
 class = Dunst
 monitor = 0
 follow = mouse
-width = 300
+width = 200
 height = 300
-origin = top-right
-offset = 10x92
+origin = top-left
+offset = 20x45
 indicate_hidden = yes
 shrink = yes
 

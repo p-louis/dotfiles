@@ -4,14 +4,14 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 bspc wm -O 2 1
-bspc monitor "0x00400013" -d '1' '2' '3' '4' '5' '6' '7' '8'
-bspc monitor "0x0040000A" -d '9'
+bspc monitor "0x00400013" -d '1' '2' '3' '4' '5' '6'
+bspc monitor "0x0040000A" -d  '7' '8' '9'
 
 workspaces
 
 bspc config external_rules_command "$HOME"/.config/bspwm/scripts/ExternalRules
 bspc config border_width 0
-bspc config top_padding 40
+bspc config top_padding 2
 bspc config bottom_padding 2
 bspc config normal_border_color "#414868"
 bspc config active_border_color "#c0caf5"
@@ -41,7 +41,7 @@ bspc rule -a nm-applet state=floating center=true
 bspc rule -a Nm-connection-editor state=floating
 
 # Terminate already running polybar, eww, picom, sxhkd and dunst instances
-processes=("xcompmgr" "polybar" "sxhkd" "dunst")
+processes=("xcompmgr" "polybar" "sxhkd" "dunst" "xss-lock")
 
 for process in "${processes[@]}"; do
   if pidof -q "$process"; then
@@ -53,7 +53,7 @@ done
 sxhkd -c "$HOME"/.config/sxhkd/sxhkdrc &
 
 # Load bars 
-"$XDG_CONFIG_HOME"/polybar/launch.sh &
+#"$XDG_CONFIG_HOME"/polybar/launch.sh &
 
 xcompmgr &
 
@@ -79,7 +79,7 @@ xsetroot -cursor_name left_ptr &
 #tail -F $HOME/.config/bspwm/rices/ryan/scripts/tray-status 2> /dev/null &
 
 #autolockscreen
-xss-lock /usr/local/bin/lock-screen &
+# xss-lock /usr/local/bin/lock-screen &
 #xautolock -time 10 -locker "$HOME/.config/bspwm/scripts/lock" && echo mem ? /sys/power/state &
 
 #speedup pointer

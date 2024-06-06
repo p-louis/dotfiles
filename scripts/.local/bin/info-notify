@@ -19,4 +19,4 @@ time=$(date | awk '{print $4}')
 linkInfo=$(iw dev wlp82s0 link)
 conn=$(echo $linkInfo | awk '{if ($1=="Connected") print "",$7; else print " Disconnected"}')
 
-notify-send "Status" "$conn \n $(date | awk '{print $1,$2,$3,$6}') \n $time \n$batSym $battery%"
+notify-send "Status" "$conn \n $(date | awk '{print $1,$2,$3,$6}') \n $time \n$batSym  $battery%"

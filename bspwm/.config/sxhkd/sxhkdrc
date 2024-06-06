@@ -13,7 +13,7 @@ super + alt + Return
 
 # Menu aplicaciones
 super + @space
-    rofi -show drun
+    rofi -show run
 
 # Scratchpad
 super + alt + o
@@ -34,14 +34,13 @@ super + {w,p,n,m}
 	 alacritty -e nvim, \
 	 alacritty -e ncmpcpp}
 
-# Hide/Show Bar (Polybar and/or eww)
-super + {h,u}
-	HideBar {-h,-u}
-
 # Reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'
 
+
+super + F5
+	info-notify
 #
 # bspwm hotkeys
 #
@@ -104,7 +103,7 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-super + backspace
+super + BackSpace
 	sysact
 
 # focus the next/previous node in the current desktop
@@ -127,7 +126,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' && desktop_notify.sh
 
 #
 # preselect
