@@ -33,47 +33,44 @@ content-foreground = ${color.fg}
 click-left = ~/.config/polybar/scripts/launch.sh
 
 [module/workspaces]
-type = internal/dwm
+type = internal/bspwm
 pin-workspaces = true
 enable-click = true
-enable-scroll = true
+enable-scroll = false
 format-padding = 1
 
-enable-tags-click = true
-enable-tags-scroll = true
-tags-scroll-empty = false
-tags-scroll-reverse = false
-tags-scroll-wrap = true
-enable-layout-click = true
-enable-layout-scroll = true
-layout-scroll-wrap = true
-layout-scroll-reverse = true
+ws-icon-default = 
+format = <label-state> <label-mode>
+label-monitor = %name%
 
-secondary-layout-symbol = [M]
+label-dimmed-foreground = #555
+label-dimmed-underline = ${bar/top.background}
+label-dimmed-focused-background = #f00
+label-dimmed-padding = 1
 
-label-floating = F
-
-format = <label-tags> <label-layout> <label-floating> 
-
-label-layout = %symbol%
-label-layout-padding = 1
-
-format-background = ${color.shade2}
 label-focused = 
-label-unfocused = 
-label-visible = 
-label-urgent = 
-label-empty = 
-
-label-empty-padding = 1
+label-focused-foreground = #e5c890
+label-focused-background = #303446
+label-focused-underline = #e5c890
 label-focused-padding = 1
-label-unfocused-padding = 1
-label-visible-padding = 1
 
-label-empty-foreground = ${color.fg}
-label-focused-foreground = ${color.curgent}
-label-unfocused-foreground = ${color.acolor}
-label-visible-foreground = ${color.fg}
+label-occupied = 
+label-occupied-underline = #555555
+label-occupied-padding = 1
+
+label-urgent = 
+label-urgent-foreground = #000000
+label-urgent-background = #e78284
+label-urgent-underline = #9b0a20
+
+label-empty = 
+label-empty-foreground = #55
+label-empty-underline = #555555
+label-empty-padding = 1
+
+label-separator = ""
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
 
 [module/ssh]
 type = custom/text
@@ -126,7 +123,11 @@ format-padding = 2
 tail = true
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+reverse-scroll = false
+
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
 format-volume-background = ${color.shade5}

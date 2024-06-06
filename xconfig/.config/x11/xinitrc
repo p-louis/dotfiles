@@ -16,4 +16,4 @@ else
 	. "$HOME/.xprofile"
 fi
 
-ssh-agent dwm
+ssh-agent bspwm -c $HOME/.config/bspwm/bspwmrc
