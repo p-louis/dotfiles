@@ -41,6 +41,21 @@ super + Escape
 
 super + F5
 	info-notify
+
+super + F6
+    desktop_notify.sh
+
+super + F9
+    dmenumount
+
+super + F10
+    dmenuunmount
+
+super + F11
+    dmenunerdfont
+
+super + F12
+    rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' ; sleep 0.5; xdotool type $(xclip -o -selection clipboard)
 #
 # bspwm hotkeys
 #
@@ -127,8 +142,6 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}' && desktop_notify.sh
-
-#
 # preselect
 #
 

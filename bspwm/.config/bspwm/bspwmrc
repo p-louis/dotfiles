@@ -9,7 +9,6 @@ bspc monitor "0x0040000A" -d  '7' '8' '9'
 
 workspaces
 
-bspc config external_rules_command "$HOME"/.config/bspwm/scripts/ExternalRules
 bspc config border_width 0
 bspc config top_padding 2
 bspc config bottom_padding 2
@@ -69,6 +68,9 @@ setbg &
 
 # Fix cursor
 xsetroot -cursor_name left_ptr &
+
+#clipboard
+greenclip daemon &
 
 #conky
 #$HOME/.config/conky/Auva/start.sh &
