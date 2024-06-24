@@ -3,9 +3,11 @@
 ## Fix java applications
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-bspc wm -O 2 1
-bspc monitor "0x00400013" -d '1' '2' '3' '4' '5' '6'
-bspc monitor "0x0040000A" -d  '7' '8' '9'
+bspc config remove_disabled_monitors true
+
+bspc wm -O HDMI-0 DP-2
+bspc monitor HDMI-0 -d '1' '2' '3' '4' '5' '6'
+bspc monitor DP-2 -d  '7' '8' '9'
 
 workspaces
 

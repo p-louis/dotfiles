@@ -28,11 +28,12 @@ ctrl + super + alt + {p,r,q,l,k}
 	{systemctl poweroff, systemctl reboot,bspc quit,$HOME/.config/bspwm/scripts/lock,xkill}
 
 # Apps
-super + {w,p,n,m}
+super + {w,p,n,m,f}
 	{firefox, \
 	 pavucontrol, \
 	 alacritty -e nvim, \
-	 alacritty -e ncmpcpp}
+	 alacritty -e ncmpcpp, \
+     alacritty -e newsboat}
 
 # Reload sxhkd
 super + Escape
