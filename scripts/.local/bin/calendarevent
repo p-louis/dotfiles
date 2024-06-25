@@ -2,7 +2,7 @@
 dateNow="$(date +'%H:%M')"
 dateFourMins="$(date +'%H:%M' -d +4mins57secs)"
 dateFiveMins="$(date +'%H:%M' -d +5mins)"
-calendarName="patrick.louis@linked-planet.com"
+calendarName="urlaub"
 
 nextTenMinutes="$(khal list -d $calendarName --notstarted --format '{start-time} * {title}' "$dateNow" 15m)"
 nextFiveMinutes="$(khal list -d $calendarName --notstarted --format '{title}\n{location}\n{url}' "$dateFourMins" "$dateFiveMins")"
@@ -11,5 +11,5 @@ if [[ -n $nextTenMinutes ]]; then
 fi
 
 if [[ -n $nextFiveMinutes ]]; then
-    notify-send "Upcoming" "<span foreground='#f4b8e4'>  </span>\n$nextFiveMinutes"
+    notify-send "Upcoming" "<span foreground='#f4b8e4'> \n$nextFiveMinutes</span>"
 fi

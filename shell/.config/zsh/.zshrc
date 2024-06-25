@@ -85,3 +85,5 @@ export PATH="$HOME/.serverless/bin:$PATH"
 # . /usr/share/powerline/bindings/zsh/powerline.zsh
 #
 source "$HOME/.config/shell/profile"
+
+eval "$(zoxide init zsh)"

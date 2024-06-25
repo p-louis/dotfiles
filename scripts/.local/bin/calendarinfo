@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+calendarName="urlaub"
+
+agenda=$(khal list -d $calendarName -o --notstarted --format "</span>{start-time} * {title}<span foreground='#f4b8e4'>")
+notify-send -u Low -i video-display --expire-time=2000 "Agenda" "<span foreground='#f4b8e4'>$agenda</span>"
