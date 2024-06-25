@@ -24,7 +24,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_RUNTIME_DIR="$HOME/.local/runtime"
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export PROJECT_HOME="$HOME/documents/projects"
 #export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 #export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
@@ -75,6 +75,7 @@ WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 
 # Other program settings:
+export ZK_NOTEBOOK_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/notes"
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"

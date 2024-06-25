@@ -31,7 +31,7 @@ function getAccountLinks() {
 function getIssues() {
   projectIds=$(echo -n "$1" | tr '\n' ',')
   curl -s\
-    -u "patrick.louis@linked-planet.com:$(pass private/accounts/work/atlassian-token)" \
+    -u "patrick.louis@linked-planet.com:$(pass private/accounts/work/tools/atlassian-token)" \
     "${JIRA_URL}/search?maxResults=850&fields=key,summary&jql=project%20IN%20%28${projectIds}%29%20AND%20issuetype=Task%20AND%20statusCategory%20NOT%20IN%20%28Done%29" |
     jq ".issues | map({key: .key, summary: .fields.summary})" 
 }
@@ -39,7 +39,7 @@ function getIssues() {
 function getIssueId() {
   issueKey=$1
   curl -s\
-    -u "patrick.louis@linked-planet.com:$(pass private/accounts/work/atlassian-token)" \
+    -u "patrick.louis@linked-planet.com:$(pass private/accounts/work/tools/atlassian-token)" \
     "${JIRA_URL}/search?jql=key%20=%20%22${issueKey}%22" |
     jq ".issues[0].id" | sed 's/"//g'
 }

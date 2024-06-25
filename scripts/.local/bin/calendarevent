@@ -2,19 +2,14 @@
 dateNow="$(date +'%H:%M')"
 dateFourMins="$(date +'%H:%M' -d +4mins57secs)"
 dateFiveMins="$(date +'%H:%M' -d +5mins)"
-calendarName="chiispr5e9mm2rh3d1nmoqb4c5sk0pridtqn0bjm5phm2r35dpi62shectnmuprcckn66rrd@virtual"
-calendarName2="link-time.com_9ldnvdtdphimf4e7el121ulqdk@group.calendar.google.com"
+calendarName="patrick.louis@linked-planet.com"
 
-nextTenMinutes="$(khal list -d $calendarName -d $calendarName2 --notstarted --format '{start-time} * {title}' $dateNow 15m)"
-nextFiveMinutes="$(khal list -d $calendarName -d $calendarName2 --notstarted --format '{title}\n{location}\n{url}' $dateFourMins $dateFiveMins)"
-if [[ -z $nextTenMinutes ]]; then
-    echo "               #[fg=colour252,bold]  "
-else
-    echo "#[fg=colour52,bold]   $nextTenMinutes"
+nextTenMinutes="$(khal list -d $calendarName --notstarted --format '{start-time} * {title}' "$dateNow" 15m)"
+nextFiveMinutes="$(khal list -d $calendarName --notstarted --format '{title}\n{location}\n{url}' "$dateFourMins" "$dateFiveMins")"
+if [[ -n $nextTenMinutes ]]; then
+    notify-send "Upcoming" "  $nextTenMinutes"
 fi
 
-if [[ -z $nextFiveMinutes ]]; then
-    echo ""
-else
-    tmux popup "echo -e \"$nextFiveMinutes\""
+if [[ -n $nextFiveMinutes ]]; then
+    notify-send "Upcoming" "<span foreground='#f4b8e4'>  </span>\n$nextFiveMinutes"
 fi

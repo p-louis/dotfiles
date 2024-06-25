@@ -1,5 +1,5 @@
 #!/bin/sh
 
-password=$(pass private/accounts/x51-hetzner-windows)
+password=$(pass private/accounts/dcs-dedicated/x51-hetzner-windows)
 
 xfreerdp3 /size:1920x1080 "/u:.\Administrator" "/p:$password" /v:195.201.62.122:3389 /sec:nla:off

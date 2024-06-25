@@ -2,7 +2,6 @@
 alt + F1
 	awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' ~/.config/sxhkd/sxhkdrc | column -t -s $'\t' | rofi -dmenu -i
 
-	
 # Open Terminal (alacritty)
 super + Return
 	alacritty
@@ -28,29 +27,30 @@ ctrl + super + alt + {p,r,q,l,k}
 	{systemctl poweroff, systemctl reboot,bspc quit,$HOME/.config/bspwm/scripts/lock,xkill}
 
 # Apps
-super + {w,p,n,m,f}
+super + {w,a,p,t,n,m,f}
 	{firefox, \
 	 pavucontrol, \
+     passmenu, \
+     tempodmenu, \
 	 alacritty -e nvim, \
 	 alacritty -e ncmpcpp, \
      alacritty -e newsboat}
 
 # Reload sxhkd
 super + Escape
-	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'
-
+	pkill -USR1 -x sxhkd; dunstify -u low 'sxhkd' 'The configuration file has been reloaded successfully!'
 
 super + F5
 	info-notify
 
 super + F6
-    desktop_notify.sh
+    calendarevent
 
 super + F9
     dmenumount
 
 super + F10
-    dmenuunmount
+    dmenuumount
 
 super + F11
     dmenunerdfont

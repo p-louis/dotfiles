@@ -30,12 +30,10 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article white default bold
 
-browser linkhandler
+browser "mpv"
 macro , open-in-browser
-macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
-macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
 macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser linkhandler
-macro p set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
+macro p set browser "mpv" ; open-in-browser ; set browser linkhandler
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black

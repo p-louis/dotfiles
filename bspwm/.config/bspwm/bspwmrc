@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+source "$HOME/.config/shell/profile"
+export PATH="${PATH}:$HOME/.local/bin"
 ## Fix java applications
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 bspc config remove_disabled_monitors true
 
 bspc wm -O HDMI-0 DP-2
-bspc monitor HDMI-0 -d '1' '2' '3' '4' '5' '6'
-bspc monitor DP-2 -d  '7' '8' '9'
+bspc monitor HDMI-0 -d '1' '2' '3' '4' '5' '6' '7' '8' '9'
+bspc monitor DP-2 -d  '0'
 
 workspaces
 
@@ -43,7 +45,6 @@ bspc rule -a Nm-connection-editor state=floating
 
 # Terminate already running polybar, eww, picom, sxhkd and dunst instances
 processes=("xcompmgr" "polybar" "sxhkd" "dunst" "xss-lock")
-
 for process in "${processes[@]}"; do
   if pidof -q "$process"; then
     pkill -9 -x "$process" > /dev/null; sleep 0.1
