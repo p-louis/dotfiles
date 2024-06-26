@@ -5,7 +5,7 @@ focused_icon="<span foreground='#f4b8e4'>$filled_icon</span>"
 
 notification=""
 focused=$(bspc query -T -d | jq '.name' | sed -r 's/("|")//g')
-for row in {0..2}; do
+for row in {2..0}; do
 	for col in {1..3}; do
         current=$((col+row*3))
 		cell=$empty_icon
@@ -20,7 +20,7 @@ for row in {0..2}; do
 			notification=$notification' '$cell
 		fi
 	done
-        if [[ $row -lt 2 ]]; then
+        if [[ $row -gt 0 ]]; then
           notification=$notification'<br>'
         else
           notification=$notification' '
