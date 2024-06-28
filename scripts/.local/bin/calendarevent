@@ -1,13 +1,13 @@
 #!/bin/bash
 dateNow="$(date +'%H:%M')"
-dateFiveMins="$(date +'%H:%M' -d +5mins)"
+#dateFiveMins="$(date +'%H:%M' -d +6mins)"
 calendarName="urlaub"
 
 nextTenMinutes="$(khal list -d $calendarName --notstarted --format '{start-time} * {title}' "$dateNow" 15m)"
-nextFiveMinutes="$(khal list -d $calendarName --notstarted --format '{title}\n{location}\n{url}' "$dateNow" "$dateFiveMins")"
+nextFiveMinutes="$(khal list -d $calendarName --notstarted --format '{title}\n{location}\n{url}' "$dateNow" 6m)"
 if [[ -n $nextFiveMinutes ]]; then
-    url=$(khal list -d $calendarName --notstarted --format '{url}' "$dateNow" "$dateFiveMins" | sed 1q)
+    url=$(khal list -d $calendarName --notstarted --format '{url}' "$dateNow" 6m | sed 1q)
     eval "$(dunstify -action="xdg-open \"$url\",Open" -u critical "Upcoming" "<span foreground='#f4b8e4'> \n$nextFiveMinutes</span>")"
 elif [[ -n $nextTenMinutes ]]; then
-    notify-send "Upcoming" "  $nextTenMinutes"
+    notify-send -u normal "Upcoming" "  $nextTenMinutes"
 fi

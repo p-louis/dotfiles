@@ -14,6 +14,7 @@ notmuch new
 afew --tag --new
 
 vdirsyncer sync 
+vdirsyncer sync google_readonly # Necessary because of double usage of google account
 
 unread=$(notmuch search tag:unread | wc -l)
 
