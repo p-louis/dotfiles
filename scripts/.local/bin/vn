@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd "$XDG_DATA_HOME/notes/work"
-nvim index.norg
