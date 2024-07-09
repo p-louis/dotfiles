@@ -53,13 +53,11 @@ tag-transforms "inbox" "" \
                "*"       "" \
                "invitation" "" \
                "attachment" "" \
+               "lists/dev" "" \
+               "lists" "" \
                "important" ""
 
-index-format-hook  iconflag  "~P"    "📤"
-index-format-hook  iconflag  "~U"    "📫"
-index-format-hook  iconflag  "~R"    "✉"
-
-set index_format='%4C|%<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]>| %-35.35F%< M?(%3g )&      > %@iconflag@ %?GR?%GR&　? %?GA?%GA&　? %?GD?%GD&%GC?  %s'
+set index_format='%4C|%<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]>| %-35.35F%< M?(%4g )& > %?GR?%GR&　? %?GA?%GA&　? %?GD?%GD&%GC?  %s'
 
 set sleep_time = 0    # Pause 0 seconds for informational messages
 set markers = no    # Disables the `+` displayed at line wraps

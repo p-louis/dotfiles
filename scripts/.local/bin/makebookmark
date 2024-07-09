@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-bookmark=$(xclip -o)
+bookmark=$(wl-paste -p)
 file="/home/plouis/.local/share/bookmarks/bookmarks"
 
 

@@ -87,3 +87,5 @@ export PATH="$HOME/.serverless/bin:$PATH"
 source "$HOME/.config/shell/profile"
 
 eval "$(zoxide init zsh)"
+
+export TERM="xterm-256color"

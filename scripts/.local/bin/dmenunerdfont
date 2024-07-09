@@ -1,4 +1,4 @@
 #!/bin/bash
 
 selection=$(nerdfontsearch | rofi -dmenu -i | awk '{print $3}' | tr -d '\n') 
-echo -n "$selection" | xclip -i -selection clipboard
+echo -n "$selection" | wl-copy -p
