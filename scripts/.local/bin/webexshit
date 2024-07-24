@@ -1,2 +1,2 @@
 #!/bin/sh
-xdotool type "Patrick Louis	patrick.louis@linked-planet.com" 
+ydotool type "Patrick Louis	patrick.louis@linked-planet.com" 
