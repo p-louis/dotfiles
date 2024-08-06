@@ -1,2 +1,6 @@
 #!/bin/sh
-ydotool type "Patrick Louis	patrick.louis@linked-planet.com" 
+if [[ -n $WAYLAND_DISPLAY ]]; then
+    ydotool type "Patrick Louis	patrick.louis@linked-planet.com" 
+else
+    xdotool type "Patrick Louis	patrick.louis@linked-planet.com" 
+fi

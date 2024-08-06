@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+if [[ -z $(hyprctl monitors | grep DELL | wc -l) ]]; then
+    hyprctl keyword monitor "eDP-1,disable"
+else
+    hyprctl keyword monitor "eDP-1,1920x1080,3840x0,1"
+fi

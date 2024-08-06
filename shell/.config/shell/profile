@@ -184,8 +184,9 @@ if [[ -z $WSL ]]; then
 		# Start graphical server on user's current tty if not already running.
 		if [ "$(tty)" = "/dev/tty1" ]; then
 		       ! pidof -s Xorg >/dev/null 2>&1 
-		       # startx "$XDG_CONFIG_HOME/x11/xinitrc"
-               ssh-agent Hyprland
+		       echo 'startx "$XDG_CONFIG_HOME/x11/xinitrc"'
+               keychain --eval id_ed25519 293E5DCA20BDB8526F3C2652F74F4CD5EDDDFBAB
+               Hyprland
 		fi
 	else
 		echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.

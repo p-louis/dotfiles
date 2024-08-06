@@ -64,7 +64,7 @@ key = "PageUp"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001B[5~"
+action = "ScrollLineUp"
 key = "PageUp"
 
 [[keyboard.bindings]]
@@ -78,7 +78,7 @@ key = "PageDown"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001B[6~"
+action = "ScrollLineDown"
 key = "PageDown"
 
 [[keyboard.bindings]]
