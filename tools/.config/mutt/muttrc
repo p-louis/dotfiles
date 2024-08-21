@@ -78,24 +78,20 @@ auto_view text/html
 auto_view application/pgp-encrypted
 alternative_order text/plain text/enriched text/html
 
-#SMIME
-set smime_is_default="no"
-set crypt_autosmime="no"
-set pgp_autosign="no"
-set smime_timeout="300"
-set crypt_autosign="yes"
-set crypt_replyencrypt="yes"
-set crypt_replysign="yes"
-set crypt_replysignencrypted="yes"
-set crypt_verify_sig="yes"
-set smime_default_key="12345678.0" # you should have already changed this
 # GPG
+set crypt_use_gpgme=yes
+set postpone_encrypt = yes
+set pgp_self_encrypt = yes
+set crypt_use_pka = no
+set crypt_autosign = yes
+set crypt_autoencrypt = yes
+set crypt_autopgp = yes 
+set crypt_protected_headers_write = yes
 set pgp_use_gpg_agent = yes
 set pgp_timeout       = 3600
 set pgp_autosign      = yes
 set pgp_sign_as       = "361908F97DD5E21D"
 set pgp_default_key   = "361908F97DD5E21D"
-set crypt_autosign    = no
 unset smime_is_default
 
 
