@@ -50,7 +50,7 @@ alias \
 alias \
   doxistunnel="ssh -L 8080:172.16.1.141:8080 aws-mk-jump-host-prod" \
   smtptunnel="ssh -L 5000:localhost:5000 aws-mk-smtp-host" \
-  zitisvpn="nmcli c up 6dc472f5-882b-41b6-888a-d2245bc25b92 passwd-file ~/.ssh/secrets-file" \
+  zitisvpn="nmcli c up 03ee489d-835f-4b11-a176-6a31801045dd passwd-file ~/.ssh/secrets-file" \
   sa="ssh-add ~/.ssh/id_ed25519"
 
 alias \

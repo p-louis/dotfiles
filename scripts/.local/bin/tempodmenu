@@ -73,7 +73,7 @@ fi
 
 accountList=$(cat "$dataDir/accounts")
 
-account=$(echo -n "$accountList" | jq '.[].name' | sed 's/"//g' | dmenu -i -l 20 -p "Select Account")
+account=$(echo -n "$accountList" | jq '.[].name' | sed 's/"//g' | rofi -dmenu -i -l 20 -p "Select Account")
 if [ -z "$account" ]; then
   exit 1
 fi
@@ -85,7 +85,7 @@ fi
 projects=$(cat "$dataDir/${accountKey}.link")
 issueList=$(getIssues "${projects}")
 
-issueSummary=$(echo -n "$issueList" | jq '.[].summary' | sed 's/"//g' | dmenu -i -l 20 -p "Choose Issue")
+issueSummary=$(echo -n "$issueList" | jq '.[].summary' | sed 's/"//g' | rofi -dmenu -i -l 20 -p "Choose Issue")
 if [ -z "$issueSummary" ]; then
   exit 1
 fi
@@ -93,15 +93,15 @@ issueKey=$(echo -n "$issueList" | jq ".[] | select(.summary==\"$issueSummary\") 
 echo $issueKey
 issueId=$(getIssueId "$issueKey")
 echo $issueId
-startDate=$(date +"%Y-%m-%d" | dmenu -p 'Enter Start Date: ')
+startDate=$(date +"%Y-%m-%d" | rofi -dmenu -p 'Enter Start Date: ')
 if [ -z "$startDate" ]; then
   exit 1
 fi
-duration=$(echo '' | dmenu -p 'Enter Duration [h]: ')
+duration=$(echo '' | rofi -dmenu -p 'Enter Duration [h]: ')
 if [ -z "$duration" ]; then
   exit 1
 fi
 durationSec=$(($duration * 3600))
-description=$(echo '' | dmenu -p 'Enter Description: ')
+description=$(echo '' | rofi -dmenu -p 'Enter Description: ')
 createWorklog "$accountKey" "$issueId" "$startDate" "$durationSec" "$description"
 

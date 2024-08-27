@@ -9,7 +9,7 @@
 
 (defwidget workspaces []
 	(literal :content workspace))
-(deflisten workspace "scripts/workspace 0")
+(deflisten workspace "scripts/workspace 1")
 
 (defwidget clock []
   (box :class "clock"

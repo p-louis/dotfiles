@@ -1,13 +1,13 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window";
+	modi: "run,filebrowser,window";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
 	scroll-method: 0;
 	normalize-match: true;
-	show-icons: true;
+	show-icons: false;
 	icon-theme: "Papirus";
 /*	cache-dir: ;*/
 	steal-focus: false;
@@ -22,21 +22,6 @@ configuration {
 	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
 	parse-hosts: true;
 	parse-known-hosts: true;
-
-	/*---------- Drun settings ----------*/
-	drun-categories: "";
-	drun-match-fields: "name,generic,exec,categories,keywords";
-	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-	drun-show-actions: false;
-	drun-url-launcher: "xdg-open";
-	drun-use-desktop-cache: false;
-	drun-reload-desktop-cache: false;
-	drun {
-		/** Parse user desktop files. */
-		parse-user:   true;
-		/** Parse system desktop files. */
-		parse-system: true;
-    }
 
 	/*---------- Run settings ----------*/
 	run-command: "{cmd}";

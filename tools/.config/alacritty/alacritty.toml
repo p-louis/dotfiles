@@ -1,5 +1,5 @@
 import = [
-    "~/.config/alacritty/colorscheme-catppuccin-frappe.toml",
+    "~/.config/alacritty/colorscheme-spooky.toml",
     "~/.config/alacritty/bindings.toml",
     "~/.config/alacritty/fontconfig.toml"
 ]

@@ -28,11 +28,11 @@ set move = no
 set folder=${XDG_DATA_HOME}/mail/
 set realname = "Patrick Louis"
 set from = "patrick.louis@linked-planet.com"
-set sendmail = "gmi send -t -C /home/plouis/.local/share/mail/"
+set sendmail = "gmi send -t -C /home/fuzzel/.local/share/mail/"
 
 set mime_type_query_command = "file --mime-type -b %s"
 
-set signature = "/home/plouis/.config/mutt/signature"
+set signature = "/home/fuzzel/.config/mutt/signature"
 set sig_on_top = yes
 
 set spoolfile = ""
@@ -40,7 +40,7 @@ set spoolfile = ""
 set sort_aux = 'reverse-last-date-received'
 set sort = 'threads'
 set date_format="%y/%m/%d %I:%M%p"
-#set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
+
 set mailcap_path = ${XDG_CONFIG_HOME}/mutt/mailcap:/usr/local/share/mutt-wizard/mailcap:$mailcap_path
 
 tag-transforms "inbox" "" \
@@ -57,7 +57,7 @@ tag-transforms "inbox" "" \
                "lists" "" \
                "important" ""
 
-set index_format='%4C|%<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]>| %-35.35F%< M?(%4g )& > %?GR?%GR&　? %?GA?%GA&　? %?GD?%GD&%GC?  %s'
+set index_format='%4C|%<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]>| %-35.35F %<M?(%4g )& > %?GR?%GR&　? %?GA?%GA&　? %?GD?%GD&%GC?  %s'
 
 set sleep_time = 0    # Pause 0 seconds for informational messages
 set markers = no    # Disables the `+` displayed at line wraps
@@ -96,7 +96,7 @@ unset smime_is_default
 
 
 # Colors
-color normal white default
+color normal brightwhite black
 color hdrdefault cyan default
 color attachment yellow default
 
@@ -112,8 +112,8 @@ color quoted2 green default
 color quoted3 cyan default
 
 color error red default # error messages
-color message white default # message  informational messages
-color indicator black yellow # indicator for the "current message"
+color message brightwhite default # message  informational messages
+color indicator black magenta # indicator for the "current message"
 color status black blue # status lines in the folder index sed for the mini-help line
 color tree  red default # the "tree" display of threads within the folder index
 color search white blue            # search matches found with search within the internal pager
