@@ -126,7 +126,7 @@
        },
        {
            "type": "disk",
-           "key": "│ VOLUME     │{$1}",
+           "key": "│ ROOT VOL   │{$1}",
            "format": "{size-used} / {size-total} [{size-percentage}]",
            "folders": "/"
        },
@@ -137,8 +137,12 @@
            "folders": "/"
        },
        {
+           "type": "custom",
+           "format": "├────────────┼──────────────────────────────────────────┤"
+       },
+       {
            "type": "disk",
-           "key": "│ VOLUME     │{$1}",
+           "key": "│ HOME VOL   │{$1}",
            "format": "{size-used} / {size-total} [{size-percentage}]",
            "folders": "/home"
        },
