@@ -133,7 +133,7 @@
        {
            "type": "disk",
            "key": "│ DISK USAGE │{$1}",
-           "format": ""
+           "format": "",
            "folders": "/"
        },
        {
@@ -145,7 +145,7 @@
        {
            "type": "disk",
            "key": "│ DISK USAGE │{$1}",
-           "format": ""
+           "format": "",
            "folders": "/home"
        },
        {
