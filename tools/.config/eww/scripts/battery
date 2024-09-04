@@ -1,11 +1,12 @@
 #!/bin/sh
 
 bat=/sys/class/power_supply/BAT0/
+ac=/sys/class/power_supply/AC/
 per="$(cat "$bat/capacity")"
 
 icon() {
 
-    [ $(cat "$bat/status") = Charging ] && echo "" && exit
+    [ $(cat "$ac/online") = 1 ] && echo "󰂄" && exit
 
     if [ "$per" -gt "90" ]; then
         icon=""
@@ -30,7 +31,7 @@ icon() {
         icon=""
         notify-send -u critical "Battery Low" "Connect Charger"
     else
-        echo  && exit
+        echo 󰂃 && exit
     fi
     echo "$icon"
 }

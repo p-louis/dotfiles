@@ -31,3 +31,5 @@
   prompt = false
 [init]
 	defaultBranch = master
+[includeIf "gitdir:~/work/zitis.*"]
+  path = ~/work/.zitisconf.git

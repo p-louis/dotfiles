@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 STATUS=$(nmcli | grep wlp | awk 'FNR==1' | awk '{print $2}')
+VPNSTATUS=$(nmcli | grep wlp | awk 'FNR==1' | awk '{print $3}')
 SSID=$(nmcli | grep wlp | awk 'FNR==1' | awk '{print $4}')
 STRENGTH=$(awk 'NR==3 {printf("%.0f",$3*10/7)}' /proc/net/wireless)
 
@@ -23,7 +24,7 @@ icon() {
     elif [[ "$STRENGTH" -ge "0" ]]; then
         echo ""
     else
-        echo "睊"
+        echo "󰖪"
     fi
 }
 
@@ -38,8 +39,10 @@ status() {
 class(){
     if [[ $STATUS == "connected" ]]; then
         echo ""
+    elif [[ $VPNSTATUS == "VPN," ]]; then
+        echo "󱚿"
     else
-        echo "睊"
+        echo "󰖪"
     fi
 }
 

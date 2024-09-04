@@ -63,3 +63,5 @@ alias \
     ls="exa --color=auto" \
     ll="exa -lah" \
     tree="exa --tree"
+
+alias cd="z"
